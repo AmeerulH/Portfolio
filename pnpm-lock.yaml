@@ -43,7 +43,7 @@ dependencies:
     version: 1.2.1(@planetscale/database@1.5.0)(kysely@0.23.4)
   next:
     specifier: 13.2.5-canary.16
-    version: 13.2.5-canary.16(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)
+    version: 13.2.5-canary.16(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.4)
   next-auth:
     specifier: ^4.19.0
     version: 4.19.0(next@13.2.5-canary.16)(react-dom@18.2.0)(react@18.2.0)
@@ -74,6 +74,9 @@ dependencies:
   remark-gfm:
     specifier: ^3.0.1
     version: 3.0.1
+  sass:
+    specifier: ^1.63.4
+    version: 1.63.4
   server-only:
     specifier: ^0.0.1
     version: 0.0.1
@@ -1984,6 +1987,10 @@ packages:
     engines: {node: '>=14.0.0'}
     dev: false
 
+  /immutable@4.3.0:
+    resolution: {integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==}
+    dev: false
+
   /inflection@2.0.1:
     resolution: {integrity: sha512-wzkZHqpb4eGrOKBl34xy3umnYHx8Si5R1U4fwmdxLo5gdH6mEK8gclckTj/qWqy4Je0bsDYe/qazZYuO7xe3XQ==}
     engines: {node: '>=14.0.0'}
@@ -2803,7 +2810,7 @@ packages:
       '@panva/hkdf': 1.1.1
       cookie: 0.5.0
       jose: 4.14.4
-      next: 13.2.5-canary.16(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)
+      next: 13.2.5-canary.16(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.4)
       oauth: 0.9.15
       openid-client: 5.4.2
       preact: 10.15.1
@@ -2822,7 +2829,7 @@ packages:
     dependencies:
       '@contentlayer/core': 0.3.0(esbuild@0.18.3)
       '@contentlayer/utils': 0.3.0
-      next: 13.2.5-canary.16(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)
+      next: 13.2.5-canary.16(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.4)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -2832,7 +2839,7 @@ packages:
       - supports-color
     dev: false
 
-  /next@13.2.5-canary.16(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0):
+  /next@13.2.5-canary.16(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.4):
     resolution: {integrity: sha512-GDHJGQek0nAE7WyiEqI+EvXakj+XXOrwzuhCc84eeUSHrw9k7ZruUWonxXhoNLCm1NXx5z/SGnsyQUv3j6zsBw==}
     engines: {node: '>=14.6.0'}
     hasBin: true
@@ -2860,6 +2867,7 @@ packages:
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+      sass: 1.63.4
       styled-jsx: 5.1.1(react@18.2.0)
     optionalDependencies:
       '@next/swc-darwin-arm64': 13.2.5-canary.16
@@ -3349,6 +3357,16 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       mri: 1.2.0
+    dev: false
+
+  /sass@1.63.4:
+    resolution: {integrity: sha512-Sx/+weUmK+oiIlI+9sdD0wZHsqpbgQg8wSwSnGBjwb5GwqFhYNwwnI+UWZtLjKvKyFlKkatRK235qQ3mokyPoQ==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.0
+      source-map-js: 1.0.2
     dev: false
 
   /satori@0.0.46:

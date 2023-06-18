@@ -5,12 +5,15 @@ export const avatar = me;
 export const title = () => {
   return <>Hey, my name is</>;
 };
+
 export const bigName = () => {
   return <>Ameerul Hady.</>;
 };
+
 export const job = () => {
   return <>I build and design websites.</>;
 };
+
 export const bio = () => {
   return (
     <>
@@ -21,12 +24,54 @@ export const bio = () => {
     </>
   );
 };
-export const personal = () => {
+
+export const firstParagraph = () => {
   return (
     <>
-      When I'm not coding, I'm either writing songs or playing with my cat. I
-      also love to travel, play golf, football and especially watch anime
-      (specifically One Piece)
+      Hey, my name is Ameerul! I have been coding since I was 15, where I
+      discovered my passion for development by creating and recreating games
+      like FlappyBird (wow, that feels like ages ago!). I started honing my
+      skills using HTML and CSS, and from there, my journey as a frontend
+      developer began.
     </>
   );
+};
+
+export const secondParagraph = () => {
+  return (
+    <>
+      Currently, I am working as a Frontend Developer at Deriv, where I work
+      extensively with the React framework. It's an exciting role that enables
+      me to utilize my skills and actively contribute to the development of
+      cutting-edge web applications.
+    </>
+  );
+};
+
+export const thirdParagraph = () => {
+  return (
+    <>
+      Throughout my career, I have embraced challenges and sought out discomfort
+      to broaden my skillset and become an all-round individual. Beyond coding,
+      my deep interests in data science, music, health & fitness, as well as
+      stock & real estate investing, fuel my curiosity and drive for learning in
+      the ever-changing field of Computer Science.
+    </>
+  );
+};
+
+export const fourthParagraph = () => {
+  return (
+    <>
+      {" "}
+      I believe that creativity and drive are key traits in achieving success,
+      and I constantly strive to push boundaries, deliver innovative solutions
+      to complex problems, and foster collaboration and teamwork with
+      like-minded individuals to create impactful and user-centric experiences.
+    </>
+  );
+};
+
+export const technologies = () => {
+  return <>Here are a few technologies I’ve been working with recently:</>;
 };

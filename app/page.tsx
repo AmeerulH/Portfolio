@@ -1,4 +1,4 @@
-import { title, bigName, bio, job } from "lib/info";
+import { bigName, bio, job, title } from "lib/info";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export const revalidate = 60;
