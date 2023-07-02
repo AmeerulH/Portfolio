@@ -1,4 +1,4 @@
-export default function AboutPage() {
+export default function MusicPage() {
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif">Music</h1>

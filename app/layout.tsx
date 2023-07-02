@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     default: "Ameerul Hady",
     template: "%s | Ameerul Hady",
   },
-  description: "Developer, writer, and creator.",
+  description: "Developer, musician, and creator.",
   openGraph: {
     title: "Ameerul Hady",
-    description: "Developer, writer, and creator.",
+    description: "Developer, musician, and creator.",
     url: "https://leerob.io",
     siteName: "Ameerul Hady",
     images: [

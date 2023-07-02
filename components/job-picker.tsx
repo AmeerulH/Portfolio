@@ -22,7 +22,7 @@ export default function JobPicker() {
                 className={clsx(
                   "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle w-[10rem] cursor-pointer mr-[2rem]",
                   {
-                    "text-neutral-500": !isActive,
+                    "text-neutral-500 border-[#ffffff98] border-l-2": !isActive,
                     "font-bold": isActive,
                   }
                 )}
@@ -32,7 +32,7 @@ export default function JobPicker() {
                   {name}
                   {isActive ? (
                     <motion.div
-                      className="absolute inset-0 bg-neutral-100 dark:bg-neutral-800 rounded-md z-[-1]"
+                      className="absolute inset-0 border-[#5F8D4E] border-l-2 bg-[#5f8d4e25] z-[-1]"
                       transition={{
                         type: "spring",
                         stiffness: 350,
@@ -46,15 +46,7 @@ export default function JobPicker() {
           })}
         </div>
         {jobs.map((job) => {
-          const {
-            name,
-            position,
-            timeline,
-            bullet_1,
-            bullet_2,
-            bullet_3,
-            website,
-          } = job;
+          const { name, position, timeline, website, bullets } = job;
           const isActive = name === active_job;
           return (
             <div className="flex flex-row relative">
@@ -74,24 +66,16 @@ export default function JobPicker() {
                     {timeline}
                   </h2>
                   <ul className="ml-[-0.7rem] space-y-4 text-gray-500 list-inside dark:text-gray-400 mt-[1.5rem]">
-                    <li className="flex">
-                      <span className="mt-[-0.2rem]">
-                        <MdArrowRight size={32} color="#5F8D4E" />
-                      </span>
-                      <span className="w-[100%]">{bullet_1}</span>
-                    </li>
-                    <li className="flex">
-                      <span className="mt-[-0.2rem]">
-                        <MdArrowRight size={32} color="#5F8D4E" />
-                      </span>
-                      <span className="w-[100%]">{bullet_2}</span>
-                    </li>
-                    <li className="flex">
-                      <span className="mt-[-0.2rem]">
-                        <MdArrowRight size={32} color="#5F8D4E" />
-                      </span>
-                      <span className="w-[100%]">{bullet_3}</span>
-                    </li>
+                    {bullets.map((bullet_point: string) => {
+                      return (
+                        <li className="flex">
+                          <span className="mt-[-0.2rem]">
+                            <MdArrowRight size={32} color="#5F8D4E" />
+                          </span>
+                          <span className="w-[100%]">{bullet_point}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ) : null}

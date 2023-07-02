@@ -12,11 +12,11 @@ const navItems = {
   "/about": {
     name: "about",
   },
+  "/experience": {
+    name: "experience",
+  },
   "/portfolio": {
     name: "portfolio",
-  },
-  "/music": {
-    name: "music",
   },
   "/contact": {
     name: "contact",
