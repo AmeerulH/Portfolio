@@ -12,27 +12,28 @@ export default function JobPicker() {
 
   return (
     <LayoutGroup>
-      <div className="flex flex-row">
-        <div className="flex flex-col">
+      <div className="flex flex-col md:flex-row">
+        <div className="flex flex-row md:flex-col max-md:overflow-scroll max-md:mb-[1rem]">
           {jobs.map((job) => {
             const { name } = job;
             const isActive = name === active_job;
             return (
               <div
                 className={clsx(
-                  "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle w-[10rem] cursor-pointer mr-[2rem]",
+                  "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle w-[10rem] cursor-pointer md:mr-[2rem]",
                   {
-                    "text-neutral-500 border-[#ffffff98] border-l-2": !isActive,
+                    "text-neutral-500 border-[#ffffff98] max-md:border-b-2 md:border-l-2":
+                      !isActive,
                     "font-bold": isActive,
                   }
                 )}
                 onClick={() => setActiveJob(name)}
               >
-                <span className="relative py-[1rem] px-[2rem] w-[10rem] ">
+                <span className="relative px-[1.5rem] py-[1rem] md:py-[1rem] md:px-[2rem] md:w-[10rem]">
                   {name}
                   {isActive ? (
                     <motion.div
-                      className="absolute inset-0 border-[#5F8D4E] border-l-2 bg-[#5f8d4e25] z-[-1]"
+                      className="absolute inset-0 border-[#5F8D4E] max-md:border-b-2 md:border-l-2 bg-[#5f8d4e25] z-[-1]"
                       transition={{
                         type: "spring",
                         stiffness: 350,

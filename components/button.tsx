@@ -7,7 +7,7 @@ type TButtonProps = {
 const Button = ({ icon, link, text }: TButtonProps) => {
   return (
     <a
-      className="bg-[#5F8D4E] hover:bg-[#7fb86a] text-neutral-800 font-bold py-2 px-4 rounded inline-flex items-center"
+      className="bg-[#5F8D4E] hover:bg-[#7fb86a] text-neutral-800 font-bold py-2 px-4 rounded inline-flex items-center justify-center max-sm:w-[10rem] sm:mr-[0.5rem]"
       href={link}
       target="_blank"
     >

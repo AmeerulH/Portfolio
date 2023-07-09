@@ -3,7 +3,7 @@ import ProjectCard from "./project-card";
 
 const Projects = () => {
   return (
-    <div className="grid gap-4 grid-cols-2">
+    <div className="grid gap-y-[3rem] sm:grid-cols-2">
       {projects.map((project) => {
         const { body_text, github_link, hashtags, project_name, website_link } =
           project;

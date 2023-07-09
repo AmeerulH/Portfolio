@@ -1,30 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
 import {
-  name,
-  avatar,
   firstParagraph,
   secondParagraph,
   thirdParagraph,
   fourthParagraph,
   technologies,
 } from "lib/info";
-import { getBlogViews, getTweetCount, getStarCount } from "lib/metrics";
 import { MdArrowRight } from "react-icons/md";
 
 export default async function AboutPage() {
-  let starCount, views, tweetCount;
-
-  try {
-    [starCount, views, tweetCount] = await Promise.all([
-      getStarCount(),
-      getBlogViews(),
-      getTweetCount(),
-    ]);
-  } catch (error) {
-    console.error(error);
-  }
-
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif">About Me</h1>
@@ -62,7 +45,7 @@ export default async function AboutPage() {
             Node.js
           </li>
         </ul>
-        <ul className="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
+        <ul className="max-w-md space-y-1 max-sm:ml-[-0.7rem] text-gray-500 list-inside dark:text-gray-400">
           <li className="flex items-center">
             <MdArrowRight size={32} color="#5F8D4E" />
             React
@@ -77,14 +60,6 @@ export default async function AboutPage() {
           </li>
         </ul>
       </div>
-      {/* <Image
-        alt={name}
-        className="rounded-full"
-        src={avatar}
-        placeholder="blur"
-        width={150}
-        priority
-      /> */}
     </section>
   );
 }

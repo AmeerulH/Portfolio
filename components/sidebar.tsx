@@ -26,44 +26,21 @@ const navItems = {
 function Logo() {
   return (
     <Link aria-label="Ameerul Hady" href="/">
-      <motion.svg
-        className="text-black dark:text-white h-[25px] md:h-[37px]"
-        width="25"
-        height="37"
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+      <motion.div
+        animate={{
+          scale: [1, 2, 2],
+          rotate: [0, 0, 360],
+          borderRadius: ["0%", "0%", "50%"],
+        }}
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+          times: [0, 0.2, 0.5],
+        }}
+        className="bg-[#71a75d] text-black h-[2rem] w-[2rem] flex items-center justify-center"
       >
-        <motion.path
-          initial={{
-            opacity: 0,
-            pathLength: 0,
-          }}
-          animate={{
-            opacity: 1,
-            pathLength: 1,
-          }}
-          transition={{
-            duration: 0.5,
-            type: "spring",
-            stiffness: 50,
-          }}
-          d="M20 100 L50 0 L80 100 H20 Z"
-          fill="currentColor"
-        />
-        <motion.path
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            type: "spring",
-            stiffness: 50,
-            delay: 0.5,
-          }}
-          d="M35 40 H65 V60 H35 Z"
-          fill="currentColor"
-        />
-      </motion.svg>
+        <p>A</p>
+      </motion.div>
     </Link>
   );
 }
@@ -82,10 +59,10 @@ export default function Navbar() {
         </div>
         <LayoutGroup>
           <nav
-            className="flex flex-row md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
+            className="flex flex-row md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative max-sm:overflow-y-scroll"
             id="nav"
           >
-            <div className="flex flex-row md:flex-col space-x-0 pr-10 mb-2 mt-2 md:mt-0">
+            <div className="flex flex-row md:flex-col space-x-0 sm:pr-10 mb-2 mt-2 md:mt-0">
               {Object.entries(navItems).map(([path, { name }]) => {
                 const isActive = path === pathname;
                 return (
@@ -104,7 +81,7 @@ export default function Navbar() {
                       {name}
                       {path === pathname ? (
                         <motion.div
-                          className="absolute inset-0 bg-neutral-100 dark:bg-neutral-800 rounded-md z-[-1]"
+                          className="absolute inset-0 bg-[#405139] rounded-md z-[-1]"
                           layoutId="sidebar"
                           transition={{
                             type: "spring",

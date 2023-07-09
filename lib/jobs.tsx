@@ -18,9 +18,9 @@ export const jobs = [
     website: "https://deriv.com/careers/besquare/",
     timeline: "September 2021 - March 2022",
     bullets: [
-      "Participated in a comprehensive training program, rotating through various tech teams including Front-end development, Product design, Mobile development, Back-end development, and Quality Assurance, gaining a holistic understanding of the IT industry.",
+      "Participated in a comprehensive training program, rotating through various tech teams including Frontend development, Product design, Mobile development, Back-end development, and Quality Assurance, gaining a holistic understanding of the IT industry.",
       "Successfully completed the Product Design Module, applying the design sprint concept to create a prototype app, resulting in winning the module's competition and being recognized as one of the best presenters.",
-      "Engaged in the Front-end development module, mastering React and building a website using APIs, showcasing the practical implementation of React's built-in state management, culminating in a mini hackathon to create a superhero website.",
+      "Engaged in the Frontend development module, mastering React and building a website using APIs, showcasing the practical implementation of React's built-in state management, culminating in a mini hackathon to create a superhero website.",
       "Developed proficiency in mobile development during the Mobile development module, utilizing Flutter to create a small project that pulled data from an API and presented it in a simple page.",
       "Acquired knowledge and skills in Backend development, working with MySQL, NodeJS, and libraries like Express to build backend applications, while gaining insights into database management, the software development life cycle (SDLC), and the interaction between frontend and backend.",
       "Explored the field of Quality Assurance during a dedicated module, learning various testing techniques such as manual testing, automation, unit testing, sanity testing, and blackbox testing, highlighting the critical role of QA testers in the application development process.",
@@ -39,7 +39,7 @@ export const jobs = [
     ],
   },
   {
-    name: "Crops For The Future",
+    name: "CFF",
     position: "Software Developer",
     website: "https://cropsforthefutureuk.org/",
     timeline: "October 2018 - May 2019",
