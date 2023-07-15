@@ -7,7 +7,7 @@ import {
 } from "lib/info";
 import { MdArrowRight } from "react-icons/md";
 
-export default async function AboutPage() {
+export default function AboutPage() {
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif">About Me</h1>

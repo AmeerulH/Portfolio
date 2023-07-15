@@ -1,11 +1,8 @@
-import JobPicker from "components/job-picker";
 import Projects from "components/projects";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Portfolio",
-  description:
-    "Here's what tech I'm currently using for coding, videos, and music.",
 };
 
 export default function PortfolioPage() {

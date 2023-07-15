@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <section>
-      <h1 className="font-bold text-3xl font-serif mb-8">Portfolio</h1>
+      <h1 className="font-bold text-3xl font-serif mb-8">Experience</h1>
       <JobPicker />
     </section>
   );
