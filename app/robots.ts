@@ -2,10 +2,10 @@ export default function robots() {
   return {
     rules: [
       {
-        userAgent: '*',
+        userAgent: "*",
       },
     ],
-    sitemap: 'https://leerob.io/sitemap.xml',
-    host: 'https://leerob.io',
+    sitemap: "https://portfolio-ameerulh.vercel.app//sitemap.xml",
+    host: "https://portfolio-ameerulh.vercel.app/",
   };
 }

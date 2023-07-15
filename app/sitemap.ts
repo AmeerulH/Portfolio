@@ -1,17 +1,10 @@
-import { allBlogs } from 'contentlayer/generated';
-
 export default async function sitemap() {
-  const blogs = allBlogs.map((post) => ({
-    url: `https://leerob.io/blog/${post.slug}`,
-    lastModified: post.publishedAt,
-  }));
-
-  const routes = ['', '/about', '/blog', '/guestbook', '/uses'].map(
+  const routes = ["", "/about", "/contact", "/experience", "/portfolio"].map(
     (route) => ({
-      url: `https://leerob.io${route}`,
-      lastModified: new Date().toISOString().split('T')[0],
+      url: `https://portfolio-ameerulh.vercel.app/${route}`,
+      lastModified: new Date().toISOString().split("T")[0],
     })
   );
 
-  return [...routes, ...blogs];
+  return [...routes];
 }
