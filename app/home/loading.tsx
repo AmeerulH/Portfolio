@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/skeleton.scss";
+import "../../styles/skeleton.scss";
 
 const SkeletonHome = () => {
   return (
