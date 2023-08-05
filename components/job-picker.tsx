@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import clsx from "clsx";
 import { LayoutGroup, motion } from "framer-motion";
 import { jobs } from "lib/jobs";

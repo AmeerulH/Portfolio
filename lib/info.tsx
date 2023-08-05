@@ -25,7 +25,7 @@ export const bio = () => {
   );
 };
 
-export const firstParagraph = () => {
+const firstParagraph = () => {
   return (
     <>
       Hey, my name is Ameerul! I have been coding since I was 15, where I
@@ -37,7 +37,7 @@ export const firstParagraph = () => {
   );
 };
 
-export const secondParagraph = () => {
+const secondParagraph = () => {
   return (
     <>
       Currently, I am working as a Frontend Developer at Deriv, where I work
@@ -48,7 +48,7 @@ export const secondParagraph = () => {
   );
 };
 
-export const thirdParagraph = () => {
+const thirdParagraph = () => {
   return (
     <>
       Throughout my career, I have embraced challenges and sought out discomfort
@@ -60,10 +60,9 @@ export const thirdParagraph = () => {
   );
 };
 
-export const fourthParagraph = () => {
+const fourthParagraph = () => {
   return (
     <>
-      {" "}
       I believe that creativity and drive are key traits in achieving success,
       and I constantly strive to push boundaries, deliver innovative solutions
       to complex problems, and foster collaboration and teamwork with
@@ -72,6 +71,22 @@ export const fourthParagraph = () => {
   );
 };
 
+export const paragraphs = [
+  firstParagraph,
+  secondParagraph,
+  thirdParagraph,
+  fourthParagraph,
+];
+
 export const technologies = () => {
   return <>Here are a few technologies I’ve been working with recently:</>;
 };
+
+export const technologies_list = [
+  "JavaScript (ES6+)",
+  "TypeScript",
+  "Node.js",
+  "React",
+  "MobX",
+  "Jest, React Testing Library",
+];

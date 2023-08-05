@@ -13,6 +13,7 @@ const Projects = () => {
             body_text={body_text}
             github_link={github_link}
             hashtags={hashtags}
+            key={project_name}
             project_name={project_name}
             website_link={website_link}
           />

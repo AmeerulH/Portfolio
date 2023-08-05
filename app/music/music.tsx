@@ -1,3 +1,4 @@
+// TODO: Implement when tab switcher is available
 export default function MusicPage() {
   return (
     <section>

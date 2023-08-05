@@ -1,5 +1,5 @@
-import Projects from "components/projects";
 import type { Metadata } from "next";
+import Projects from "components/projects";
 
 export const metadata: Metadata = {
   title: "Portfolio",

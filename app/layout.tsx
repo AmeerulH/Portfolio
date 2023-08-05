@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ameerul Hady",
     description: "Developer, musician, and creator.",
-    url: "https://leerob.io",
+    url: "https://portfolio-ameerulh.vercel.app/",
     siteName: "Ameerul Hady",
     images: [
       {

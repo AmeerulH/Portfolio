@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { AiOutlineFolder } from "react-icons/ai";
 import { BiLinkExternal } from "react-icons/bi";
 import { FiGithub } from "react-icons/fi";
@@ -10,6 +9,7 @@ type TProjectCardTypes = {
   body_text: string;
   github_link: string;
   hashtags: Array<string>;
+  key: string;
   project_name: string;
   website_link: string;
 };
@@ -18,6 +18,7 @@ const ProjectCard = ({
   body_text,
   github_link,
   hashtags,
+  key,
   project_name,
   website_link,
 }: TProjectCardTypes) => {
@@ -26,6 +27,7 @@ const ProjectCard = ({
       className="box"
       whileHover={{ scale: [null, 1.2, 1.1] }}
       transition={{ duration: 0.3 }}
+      key={key}
     >
       <div className="bg-[#5F8D4E] hover:bg-[#5c9447] w-[20rem] h-[20rem] rounded overflow-hidden shadow-lg">
         <div className="px-6 pt-4 flex items-center justify-between">
