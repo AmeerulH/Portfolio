@@ -1,6 +1,6 @@
 @mixin skeleton_shell($background_color, $highlight_color) {
   display: inline-block;
-  height: 1em;
+  height: 1rem;
   position: relative;
   overflow: hidden;
   background-color: $background_color;
@@ -37,4 +37,57 @@
 
 .skeleton-black {
   @include skeleton_shell(#333, #a0a0a0);
+}
+
+.header {
+  height: 3rem;
+  width: 10rem;
+}
+
+.experience {
+  &__text {
+    width: 6rem;
+  }
+
+  &__timeline {
+    width: 8rem;
+  }
+
+  &__title {
+    height: 2rem;
+    width: 20rem;
+  }
+}
+
+.button {
+  height: 2.3rem;
+  width: 6.5rem;
+
+  &--wide {
+    height: 2.3rem;
+    width: 8rem;
+  }
+}
+
+.card {
+  height: 20rem;
+  width: 20rem;
+
+  &__hashtags {
+    height: 1.75rem;
+    width: 4rem;
+    border-radius: 9999px;
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+
+    &--big {
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 50%;
+    }
+  }
 }

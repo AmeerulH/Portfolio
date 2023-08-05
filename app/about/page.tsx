@@ -1,5 +1,6 @@
 import { MdArrowRight } from "react-icons/md";
 import { paragraphs, technologies, technologies_list } from "lib/info";
+import SkeletonAbout from "./loading";
 
 export default function AboutPage() {
   return (

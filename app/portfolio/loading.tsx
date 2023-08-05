@@ -5,22 +5,22 @@ const SkeletonPortfolio = () => {
   const hashtags = [1, 2, 3];
   return (
     <>
-      <div className="skeleton mb-8 h-[3rem] w-[10rem]"></div>
+      <div className="skeleton-black header mb-8"></div>
       <div className="grid gap-y-[3rem] sm:grid-cols-2">
         {cards.map((card) => (
           <div
-            className="bg-[#5F8D4E] w-[20rem] h-[20rem] rounded overflow-hidden shadow-lg"
+            className="bg-[#6d7c68] w-[20rem] h-[20rem] rounded overflow-hidden shadow-lg"
             key={card}
           >
             <div className="mt-1 px-6 pt-4 flex items-center justify-between">
-              <div className="skeleton-black rounded-full h-[2.5rem] w-[2.5rem]" />
+              <div className="skeleton-black card__icon--big" />
               <div className="flex items-center">
-                <div className="skeleton-black rounded-full h-[2rem] w-[2rem]" />
-                <div className="skeleton-black rounded-full h-[2rem] w-[2rem] ml-2" />
+                <div className="skeleton-black card__icon " />
+                <div className="skeleton-black card__icon ml-2" />
               </div>
             </div>
             <div className="px-6 py-4">
-              <div className="skeleton-black text-xl mt-3 mb-2 h-[2rem] w-[8rem]" />
+              <div className="skeleton-black header--small text-xl mt-3 mb-2" />
               <div>
                 <div className="skeleton-black  w-[100%]" />
                 <div className="skeleton-black  w-[95%]" />
@@ -32,7 +32,7 @@ const SkeletonPortfolio = () => {
               {hashtags.map((hashtag) => {
                 return (
                   <span
-                    className="skeleton-black rounded-full px-3 py-1 mr-2 mb-2 h-[1.75rem] w-[4rem]"
+                    className="skeleton-black card__hashtags mr-2 mb-2"
                     key={hashtag}
                   />
                 );

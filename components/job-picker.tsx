@@ -28,6 +28,7 @@ export default function JobPicker() {
                   }
                 )}
                 onClick={() => setActiveJob(name)}
+                key={name}
               >
                 <span className="relative px-[1.5rem] py-[1rem] md:py-[1rem] md:px-[2rem] md:w-[10rem]">
                   {name}
@@ -50,7 +51,7 @@ export default function JobPicker() {
           const { name, position, timeline, website, bullets } = job;
           const isActive = name === active_job;
           return (
-            <div className="flex flex-row relative">
+            <div className="flex flex-row relative" key={name}>
               {isActive ? (
                 <div className="">
                   <h1 className="text-2xl font-bold">
@@ -67,9 +68,9 @@ export default function JobPicker() {
                     {timeline}
                   </h2>
                   <ul className="ml-[-0.7rem] space-y-4 text-gray-500 list-inside dark:text-gray-400 mt-[1.5rem]">
-                    {bullets.map((bullet_point: string) => {
+                    {bullets.map((bullet_point: string, key) => {
                       return (
-                        <li className="flex">
+                        <li className="flex" key={key}>
                           <span className="mt-[-0.2rem]">
                             <MdArrowRight size={32} color="#5F8D4E" />
                           </span>
