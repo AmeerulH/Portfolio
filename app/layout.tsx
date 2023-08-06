@@ -23,14 +23,6 @@ export const metadata: Metadata = {
     description: "Developer, musician, and creator.",
     url: "https://portfolio-ameerulh.vercel.app/",
     siteName: "Ameerul Hady",
-    images: [
-      // TODO: Replace with custom icon
-      {
-        url: "https://leerob.io/og.jpg",
-        width: 1920,
-        height: 1080,
-      },
-    ],
     locale: "en-US",
     type: "website",
   },
@@ -51,7 +43,6 @@ export const metadata: Metadata = {
   },
   icons: {
     shortcut: "/favicon.ico",
-    // TODO: Replace with custom icon
   },
   verification: {
     google: "eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw",
