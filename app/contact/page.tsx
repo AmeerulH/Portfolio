@@ -23,11 +23,13 @@ export default function ContactsPage() {
             icon={<FaGithub />}
             link="https://github.com/AmeerulH"
             text="Github"
+            wide
           />
           <Button
             icon={<FaLinkedin />}
             link="https://www.linkedin.com/in/ameerul-h/"
             text="LinkedIn"
+            wide
           />
         </div>
         <div className="max-sm:pt-[0.5rem]">
@@ -35,6 +37,7 @@ export default function ContactsPage() {
             icon={<MdEmail />}
             link="mailto:ameerulzhbusiness@gmail.com"
             text="Email Me"
+            full
           />
         </div>
       </div>

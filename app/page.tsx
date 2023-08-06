@@ -18,11 +18,13 @@ export default function HomePage() {
           icon={<FaGithub />}
           link="https://github.com/AmeerulH"
           text="Github"
+          wide
         />
         <Button
           icon={<FaLinkedin />}
           link="https://www.linkedin.com/in/ameerul-h/"
           text="LinkedIn"
+          wide
         />
       </div>
     </section>
