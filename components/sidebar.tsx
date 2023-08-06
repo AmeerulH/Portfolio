@@ -26,6 +26,7 @@ const navItems = {
 function Logo() {
   return (
     <Link aria-label="Ameerul Hady" href="/">
+      {/* TODO: replace icon with custom icon */}
       <motion.div
         animate={{
           scale: [1, 2, 2],
