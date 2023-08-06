@@ -9,7 +9,7 @@ const SkeletonPortfolio = () => {
       <div className="grid gap-y-[3rem] sm:grid-cols-2">
         {cards.map((card) => (
           <div
-            className="bg-[#6d7c68] w-[20rem] h-[20rem] rounded overflow-hidden shadow-lg"
+            className="bg-[#67bc48] w-[20rem] h-[20rem] rounded overflow-hidden shadow-lg"
             key={card}
           >
             <div className="mt-1 px-6 pt-4 flex items-center justify-between">

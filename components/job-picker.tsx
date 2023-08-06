@@ -72,7 +72,7 @@ export default function JobPicker() {
                       return (
                         <li className="flex" key={key}>
                           <span className="mt-[-0.2rem]">
-                            <MdArrowRight size={32} color="#5F8D4E" />
+                            <MdArrowRight size={32} color="#7be056" />
                           </span>
                           <span className="w-[100%]">{bullet_point}</span>
                         </li>

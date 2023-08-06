@@ -4,6 +4,8 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { LayoutGroup, motion } from "framer-motion";
+import Image from "next/image";
+import logo from "../assets/logo-green.svg";
 
 const navItems = {
   "/": {
@@ -26,7 +28,6 @@ const navItems = {
 function Logo() {
   return (
     <Link aria-label="Ameerul Hady" href="/">
-      {/* TODO: replace icon with custom icon */}
       <motion.div
         animate={{
           scale: [1, 2, 2],
@@ -38,9 +39,8 @@ function Logo() {
           ease: "easeInOut",
           times: [0, 0.2, 0.5],
         }}
-        className="bg-[#71a75d] text-black h-[2rem] w-[2rem] flex items-center justify-center"
       >
-        <p>A</p>
+        <Image className="ml-2" src={logo} width={30} height={30} alt="svg" />
       </motion.div>
     </Link>
   );
@@ -82,7 +82,7 @@ export default function Navbar() {
                       {name}
                       {path === pathname ? (
                         <motion.div
-                          className="absolute inset-0 bg-[#405139] rounded-md z-[-1]"
+                          className="absolute inset-0 bg-[#7be056] bg-opacity-20 rounded-md z-[-1]"
                           layoutId="sidebar"
                           transition={{
                             type: "spring",

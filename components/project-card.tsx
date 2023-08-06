@@ -29,7 +29,7 @@ const ProjectCard = ({
       transition={{ duration: 0.3 }}
       key={key}
     >
-      <div className="bg-[#5F8D4E] hover:bg-[#5c9447] w-[20rem] h-[20rem] rounded overflow-hidden shadow-lg">
+      <div className="bg-[#67bc48] hover:bg-[#7be056] w-[20rem] h-[20rem] rounded overflow-hidden shadow-lg">
         <div className="px-6 pt-4 flex items-center justify-between">
           <AiOutlineFolder color="#dbfdcf" size={40} />
           <div className="flex items-center">

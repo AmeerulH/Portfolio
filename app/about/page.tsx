@@ -24,7 +24,7 @@ export default function AboutPage() {
         <ul className="max-w-md mr-[5rem] ml-[-0.7rem] space-y-1 text-gray-500 list-inside dark:text-gray-400">
           {technologies_list.slice(0, 3).map((technology) => (
             <li className="flex items-center" key={technology}>
-              <MdArrowRight size={32} color="#5F8D4E" />
+              <MdArrowRight size={32} color="#7be056" />
               {technology}
             </li>
           ))}
@@ -32,7 +32,7 @@ export default function AboutPage() {
         <ul className="max-w-md space-y-1 max-sm:ml-[-0.7rem] text-gray-500 list-inside dark:text-gray-400">
           {technologies_list.slice(3, 6).map((technology) => (
             <li className="flex items-center" key={technology}>
-              <MdArrowRight size={32} color="#5F8D4E" />
+              <MdArrowRight size={32} color="#7be056" />
               {technology}
             </li>
           ))}

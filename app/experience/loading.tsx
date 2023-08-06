@@ -45,7 +45,7 @@ const SkeletonExperience = () => {
                 return (
                   <li className="flex flex-row items-center" key={key}>
                     <span className="mt-[-0.2rem]">
-                      <MdArrowRight size={32} color="#5F8D4E" />
+                      <MdArrowRight size={32} color="#7be056" />
                     </span>
                     <div className="flex flex-col w-[100%]">
                       <div className="skeleton-black mt-5 w-[90%]" />

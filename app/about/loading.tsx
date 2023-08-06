@@ -21,7 +21,7 @@ const SkeletonAbout = () => {
         <ul className="max-w-md mr-[5rem] ml-[-0.7rem] space-y-1 list-inside">
           {arrows.map((key) => (
             <li className="flex items-center" key={key}>
-              <MdArrowRight size={32} color="#5F8D4E" />
+              <MdArrowRight size={32} color="#7be056" />
               <div className="skeleton-black w-[7rem]" />
             </li>
           ))}
@@ -29,7 +29,7 @@ const SkeletonAbout = () => {
         <ul className="max-w-md space-y-1 max-sm:ml-[-0.7rem] list-inside">
           {arrows.map((key) => (
             <li className="flex items-center" key={key}>
-              <MdArrowRight size={32} color="#5F8D4E" />
+              <MdArrowRight size={32} color="#7be056" />
               <div className="skeleton-black w-[7rem]" />
             </li>
           ))}
