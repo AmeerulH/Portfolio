@@ -34,7 +34,7 @@ export default function JobPicker() {
                   {name}
                   {isActive ? (
                     <motion.div
-                      className="absolute inset-0 border-[#5F8D4E] max-md:border-b-2 md:border-l-2 bg-[#5f8d4e25] z-[-1]"
+                      className="absolute inset-0 border-[#7be056] max-md:border-b-2 md:border-l-2 bg-[#5f8d4e25] z-[-1]"
                       transition={{
                         type: "spring",
                         stiffness: 350,
@@ -57,7 +57,7 @@ export default function JobPicker() {
                   <h1 className="text-2xl font-bold">
                     {position}{" "}
                     <a
-                      className="hover-underline"
+                      className="hover-underline text-[#7be056]"
                       href={website}
                       target="_blank"
                     >

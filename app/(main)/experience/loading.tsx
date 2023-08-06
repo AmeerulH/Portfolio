@@ -27,7 +27,7 @@ const SkeletonExperience = () => {
                 <span className="flex items-center relative px-[1.5rem] py-[1rem] md:py-[1rem] md:px-[2rem] md:w-[10rem]">
                   <div className="skeleton-black experience__text" />
                   {is_default ? (
-                    <div className="absolute inset-0 border-[#5F8D4E] max-md:border-b-2 md:border-l-2 bg-[#5f8d4e25] z-[-1]" />
+                    <div className="absolute inset-0 border-[#7be056] max-md:border-b-2 md:border-l-2 bg-[#5f8d4e25] z-[-1]" />
                   ) : null}
                 </span>
               </div>
