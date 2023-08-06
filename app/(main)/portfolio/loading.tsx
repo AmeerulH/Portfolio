@@ -1,4 +1,4 @@
-import "../../styles/skeleton.scss";
+import "styles/skeleton.scss";
 
 const SkeletonPortfolio = () => {
   const cards = [1, 2, 3, 4];

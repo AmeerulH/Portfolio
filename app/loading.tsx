@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/skeleton.scss";
+import "styles/skeleton.scss";
 
 // TODO: fix this showing as default loader
 const SkeletonHome = () => {

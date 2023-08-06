@@ -1,6 +1,6 @@
 import React from "react";
 import { MdArrowRight } from "react-icons/md";
-import "../../styles/skeleton.scss";
+import "styles/skeleton.scss";
 
 const SkeletonAbout = () => {
   const paragraphs = [1, 2, 3, 4];

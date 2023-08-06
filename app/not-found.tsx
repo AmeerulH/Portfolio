@@ -1,5 +1,5 @@
 import Button from "components/button";
-import "../styles/not-found.scss";
+import "styles/not-found.scss";
 
 const Error404 = () => {
   return (

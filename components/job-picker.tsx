@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { LayoutGroup, motion } from "framer-motion";
 import { jobs } from "lib/jobs";
 import { MdArrowRight } from "react-icons/md";
-import "../styles/animations.scss";
+import "styles/animations.scss";
 
 export default function JobPicker() {
   const [active_job, setActiveJob] = useState("Deriv");

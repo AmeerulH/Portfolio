@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { jobs } from "lib/jobs";
 import { MdArrowRight } from "react-icons/md";
-import "../../styles/skeleton.scss";
+import "styles/skeleton.scss";
 
 const SkeletonExperience = () => {
   const bullets = [1, 2, 3];
