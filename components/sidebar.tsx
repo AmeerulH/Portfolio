@@ -40,7 +40,7 @@ function Logo() {
           times: [0, 0.2, 0.5],
         }}
       >
-        <Image className="ml-2" src={logo} width={30} height={30} alt="svg" />
+        <Image className="ml-1" src={logo} width={30} height={30} alt="svg" />
       </motion.div>
     </Link>
   );
@@ -54,7 +54,7 @@ export default function Navbar() {
 
   return (
     <aside className="md:w-[150px] md:flex-shrink-0 -mx-4 md:mx-0 md:px-0 font-serif">
-      <div className="lg:sticky lg:top-20">
+      <div className="sticky lg:top-20">
         <div className="ml-2 md:ml-[12px] mb-2 px-4 md:px-0 md:mb-8 space-y-10 flex flex-col md:flex-row items-start max-md:hidden">
           <Logo />
         </div>

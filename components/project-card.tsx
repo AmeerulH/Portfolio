@@ -29,7 +29,7 @@ const ProjectCard = ({
       transition={{ duration: 0.3 }}
       key={key}
     >
-      <div className="bg-[#67bc48] hover:bg-[#7be056] w-[20rem] h-[20rem] rounded overflow-hidden shadow-lg">
+      <div className="relative bg-[#67bc48] hover:bg-[#7be056] w-[20rem] max-sm:w-[100%] h-[20rem] rounded overflow-hidden shadow-lg">
         <div className="px-6 pt-4 flex items-center justify-between">
           <AiOutlineFolder color="#dbfdcf" size={40} />
           <div className="flex items-center">
@@ -53,7 +53,7 @@ const ProjectCard = ({
           </div>
           <p className="text-gray-700 text-base">{body_text}</p>
         </div>
-        <div className="px-6 pt-4 pb-2">
+        <div className="absolute px-6 pt-4 bottom-[0.8rem]">
           {hashtags.map((hashtag: string) => {
             return (
               <span className="inline-block text-neutral-300 bg-neutral-800 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
