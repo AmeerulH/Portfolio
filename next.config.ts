@@ -18,6 +18,9 @@ const baseHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  cacheComponents: true,
+  partialPrefetching: true,
+  reactCompiler: false,
   images: { remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }] },
   async headers() {
     return [
