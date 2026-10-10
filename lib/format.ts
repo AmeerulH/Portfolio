@@ -14,7 +14,7 @@ export function monthYear(iso: string) {
 
 export const kindLabel: Record<string, string> = {
   product: "Product",
-  clientWebsite: "Client website",
+  clientWebsite: "Client work",
   openSource: "Side project",
 };
 

@@ -20,7 +20,7 @@ export const project = defineType({
       options: {
         list: [
           { title: "Product", value: "product" },
-          { title: "Client website", value: "clientWebsite" },
+          { title: "Client work", value: "clientWebsite" },
           { title: "Open source / side project", value: "openSource" },
         ],
         layout: "radio",
