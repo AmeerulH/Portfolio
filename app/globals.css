@@ -195,7 +195,7 @@ p { margin: 0; text-wrap: pretty; }
   gap: 3rem;
   padding-block: 2.5rem 6rem;
 }
-@media (min-width: 64rem) {
+@media (min-width: 52rem) {
   .catalogue { grid-template-columns: minmax(0, 34fr) minmax(0, 66fr); gap: clamp(2.5rem, 5vw, 6rem); padding-block: 3.5rem 8rem; }
   .intro { position: sticky; top: calc(var(--header-h) + 3.5rem); align-self: start; }
 }
@@ -453,7 +453,22 @@ p { margin: 0; text-wrap: pretty; }
 /* Dial layout and shadow */
 .dial-wrap { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 1.5rem; }
 .dial { width: 8.5rem; filter: drop-shadow(0 6px 8px rgb(0 0 0 / 0.1)); }
-@media (min-width: 64rem) and (min-height: 48rem) { .intro { position: sticky; } }
-@media (min-width: 64rem) and (max-height: 47.99rem) { .intro { position: static; } }
 @media (max-width: 30rem) { .dial-wrap { grid-template-columns: 1fr; } .dial { width: 7.5rem; } }
 .contrib { gap: 2px; } .contrib .week { gap: 2px; }
+
+/* Sticky intro: always fits the viewport; long project lists scroll inside it */
+@media (min-width: 52rem) {
+  .intro {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+    max-height: calc(100dvh - var(--header-h) - 3rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+  .intro::-webkit-scrollbar { display: none; }
+  .intro .display { font-size: clamp(1.75rem, 0.9rem + 2vw, 2.75rem); }
+}
+@media (min-width: 52rem) and (max-width: 74.99rem) {
+  .intro .dial-wrap { grid-template-columns: 1fr; justify-items: start; }
+}
