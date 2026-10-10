@@ -137,7 +137,7 @@ export function Dial({ models }: { models: DialModel[] }) {
 
       <nav className="model-index" aria-label="Models">
         {models.map((m, i) => (
-          <a key={m.id} href={`#${m.id}`} aria-current={i === active} onClick={() => setActive(i)}>
+          <a key={m.id} href={`#${m.id}`} aria-current={i === active ? "true" : undefined} onClick={() => setActive(i)}>
             <span className="num">{m.number}</span>
             <span>{m.title}</span>
             <span className="tag" aria-hidden />
