@@ -21,10 +21,8 @@ const nextConfig: NextConfig = {
   images: { remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }] },
   async headers() {
     return [
-      // Studio needs a looser policy (inline styles, sanity.io frames/connections)
-      { source: "/studio/:path*", headers: baseHeaders },
       {
-        source: "/((?!studio).*)",
+        source: "/(.*)",
         headers: [...baseHeaders, { key: "Content-Security-Policy", value: csp }, { key: "X-Frame-Options", value: "DENY" }],
       },
     ];
