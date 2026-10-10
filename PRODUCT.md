@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Existing codebase, being rebuilt in place: Next.js App Router (upgrading to 16.x), React 19, TypeScript, Tailwind v4, motion. Content in Sanity (project khwggy75, dataset production, Studio embedded at /studio). Live repo data from the GitHub GraphQL API. Deployed on Vercel.
+Existing codebase, being rebuilt in place: Next.js App Router (upgrading to 16.x), React 19, TypeScript, Tailwind v4, motion. Content in Sanity (project khwggy75, dataset production, standalone Studio in /studio, deployed to sanity.studio). Live repo data from the GitHub GraphQL API. Deployed on Vercel.
 
 ## Users
 
@@ -26,7 +26,7 @@ Product engineer: ships whole products end to end, from idea to production, with
 
 ## Operating Context
 
-Content is edited by the owner in Sanity Studio and published through a webhook that revalidates pages. GitHub stats are fetched server-side and cached. The resume page and PDF are generated from the same Sanity content. Background content comes from the previous site (lib/info, lib/jobs, lib/projects) and a LinkedIn export to be supplied.
+Content is edited by the owner in Sanity Studio and delivered to the site through Sanity's Live Content API. GitHub stats are fetched server-side and cached. The resume page and PDF are generated from the same Sanity content. Background content comes from the previous site (lib/info, lib/jobs, lib/projects) and a LinkedIn export to be supplied.
 
 ## Capabilities and Constraints
 
