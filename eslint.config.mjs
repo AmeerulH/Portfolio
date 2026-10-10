@@ -1,2 +1,2 @@
 import next from "eslint-config-next";
-export default [...next, { ignores: [".next/**", "sanity/extract.json"] }];
+export default [...next, { ignores: [".next/**", "sanity/extract.json", "studio/dist/**", "studio/.sanity/**"] }];
