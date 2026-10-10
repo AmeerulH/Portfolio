@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getExperience, getFeaturedProjects, getSettings } from "@/sanity/lib/queries";
@@ -6,6 +7,11 @@ import { availabilityLabel, modelNumber, period } from "@/lib/format";
 import { Dial } from "@/components/dial";
 import { ModelSheet } from "@/components/model-sheet";
 import { Contrib } from "@/components/contrib";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSettings();
+  return { description: settings?.summary ?? undefined };
+}
 
 export default async function Home() {
   const [settings, projects, jobs] = await Promise.all([getSettings(), getFeaturedProjects(), getExperience()]);
@@ -45,7 +51,8 @@ export default async function Home() {
       </aside>
 
       <div style={{ display: "grid", gap: "clamp(4rem, 8vw, 7rem)" }}>
-        <section className="models" aria-label="Selected work">
+        <section className="models" aria-labelledby="models-h">
+          <h2 id="models-h" className="sr-only">Selected work</h2>
           {projects.map((p, i) => (
             <ModelSheet key={p._id} project={p} number={modelNumber(i)} stats={p.repo ? gh.repos[p.repo] : undefined} priority={i === 0} />
           ))}

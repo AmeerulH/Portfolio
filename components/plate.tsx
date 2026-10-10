@@ -21,7 +21,7 @@ export function Plate({ project, number, priority }: { project: Pick<Project, "t
       ) : (
         <>
           <span className="stamp-ring" aria-hidden />
-          <span className="stamp" aria-hidden>{number}</span>
+          <span className="stamp" aria-hidden data-n={number} />
         </>
       )}
     </span>

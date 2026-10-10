@@ -6,7 +6,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import "./globals.css";
 
-const grotesk = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", display: "swap" });
+const grotesk = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", display: "optional" });
 
 export const metadata: Metadata = {
   title: { default: "Ameerul Hady", template: "%s | Ameerul Hady" },
