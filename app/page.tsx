@@ -1,11 +1,11 @@
 import { Suspense } from "react";
-import { getExperience, getFeaturedProjects, getSettings } from "@/sanity/lib/queries";
+import { getProjects } from "@/sanity/lib/queries";
+import { getGithubData } from "@/lib/github";
 
 async function Debug() {
-  const [s, e, p] = await Promise.all([getSettings(), getExperience(), getFeaturedProjects()]);
-  return (
-    <pre>{JSON.stringify({ name: s?.name, jobs: e.map((x) => x.company), featured: p.map((x) => x.title) }, null, 1)}</pre>
-  );
+  const projects = await getProjects();
+  const gh = await getGithubData(projects.map((p) => p.repo).filter(Boolean) as string[]);
+  return <pre>{JSON.stringify({ repos: Object.values(gh.repos).map((r) => [r.nameWithOwner, r.stars, r.language?.name]), total: gh.contributions?.total, weeks: gh.contributions?.weeks.length }, null, 1)}</pre>;
 }
 
 export default function Home() {
