@@ -1,0 +1,116 @@
+{
+  "title": "Choose the visual world for Ameerul Hady's portfolio",
+  "question": "The roll assigned the Station Departure Board. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Station Departure Board",
+      "kicker": "THE ROLL",
+      "lineage": "Swiss and European station departure boards",
+      "thesis": "Your work as destinations on a board: every project is a row, every row opens a journey.",
+      "palette": ["#E4E6E5", "#1B1C1E", "#F1EFE8", "#F0A800"],
+      "materials": ["split-flap tiles", "enamel signage", "pale station wall"],
+      "viewport": "A wall-sized board on a pale ground: your name as the first row, then selected work as rows of destination, year, platform and status. Rows flip into place once on load, and one amber row marks what is boarding now: your availability.",
+      "risk": "Reads as a novelty UI if the flipping is slow or decorative; it has to stay fast, legible and keyboard-first.",
+      "raised": [
+        { "from": "azulejo-station-hall", "raise": "Every layout decision snaps to one whole-tile unit, so the board stays strict from desktop to phone." },
+        { "from": "phosphor-terminal", "raise": "Keyboard-first operation: Cmd+K and arrow keys move between rows, and system states print themselves as status lines instead of chrome." },
+        { "from": "wpa-park-poster", "raise": "One imperative caption per section, set below the board, so each screen has a single clear instruction." }
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "Model Series",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Braun and Dieter Rams product catalogues",
+      "thesis": "Each project is a numbered product with a model number, a spec table and one honest photograph.",
+      "palette": ["#EDEBE6", "#1E1E1E", "#8A8A85", "#E2461E"],
+      "materials": ["matte grey plastic", "silkscreened labels", "catalogue paper"],
+      "viewport": "A calm catalogue sheet: your name and one sentence at left, a grid of numbered models at right, each with a spec line. A single orange dial marks the selected model.",
+      "risk": "The most familiar route to minimal and professional; it can read as polite instead of memorable.",
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-glazier",
+      "label": "Glazier's Partition",
+      "verdict": "competitive",
+      "lineage": "steel-framed glass partition walls",
+      "thesis": "Quiet panes of glass, each one a destination, lit from behind when you step up to it.",
+      "palette": ["#F3F4F2", "#111111", "#1F4FD8", "#D98A00"],
+      "materials": ["black glazing bars", "seeded glass", "backlit colour panes"],
+      "viewport": "A near-clear wall of panes in a black grid. One cobalt pane lights up with your headline; hovering a pane backlights it to show a project.",
+      "case": "Fuses cleanly: panes map to projects and the hover state is the interaction; it holds clarity but a little less identity than the board.",
+      "risk": "Can feel gallery-quiet and under-explain who you are.",
+      "hero": "https://impeccable.style/worlds/cards/craft-making-glazier-colorfield-partition-hero.webp"
+    },
+    {
+      "id": "challenger-variable",
+      "label": "Variable Specimen",
+      "verdict": "competitive",
+      "lineage": "interactive variable-font specimens",
+      "thesis": "Your name as a living specimen: drag, and the whole page changes weight and width with you.",
+      "palette": ["#F4F3EF", "#141414", "#E4572E"],
+      "materials": ["flat paper", "oversized type", "live axis readout"],
+      "viewport": "A giant name that thickens from hairline to black under the cursor, with a small readout, and a grid of work below that responds to the same axis.",
+      "case": "Wins on interaction and craft signal for a frontend engineer; loses on clarity because the work can sit below the fold.",
+      "risk": "A single trick; the page must still read as a portfolio after the first drag.",
+      "hero": "https://impeccable.style/worlds/cards/variable-font-specimen-hero.webp"
+    },
+    {
+      "id": "challenger-phosphor",
+      "label": "Phosphor Terminal",
+      "verdict": "declined",
+      "lineage": "green-phosphor terminals",
+      "palette": ["#0A0F0A", "#33FF66"],
+      "materials": ["curved glass", "scanline glow"],
+      "case": "Loses both axes: it is the near-black and neon developer cliché the brief rules out, and hiring managers skim it poorly.",
+      "kept": "Keyboard-first operation and states that print themselves.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-phosphor-terminal-midnight-hero.webp"
+    },
+    {
+      "id": "challenger-azulejo",
+      "label": "Azulejo Hall",
+      "verdict": "declined",
+      "lineage": "Portuguese tiled station halls",
+      "palette": ["#F4F6FA", "#1B3FA0"],
+      "materials": ["tin-glazed tiles", "scrolled borders"],
+      "case": "Loses both axes: the narrative-panel pictorial grammar does not carry software work.",
+      "kept": "Whole-tile layout units.",
+      "hero": "https://impeccable.style/worlds/cards/architecture-places-azulejo-station-hall-hero.webp"
+    },
+    {
+      "id": "challenger-wpa",
+      "label": "Park Poster",
+      "verdict": "declined",
+      "lineage": "WPA national-park posters",
+      "palette": ["#2B8C8C", "#2F5D3A", "#C77D2E", "#F1E6CC"],
+      "materials": ["four flat silkscreen inks"],
+      "case": "Loses both axes: scenic illustration needs art the product does not have.",
+      "kept": "One imperative caption per sheet.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-wpa-park-poster-hero.webp"
+    },
+    {
+      "id": "challenger-hoarding",
+      "label": "Fly-posted Hoarding",
+      "verdict": "declined",
+      "lineage": "layered street-fair flyers",
+      "palette": ["#F3EDE0", "#111111", "#FF6A00", "#7B57F0"],
+      "materials": ["riso grain", "torn paper"],
+      "case": "Loses both axes: maximal collage fights the minimal, professional brief.",
+      "kept": "One calm panel and one word big enough to win.",
+      "hero": "https://impeccable.style/worlds/cards/fly-posted-festival-hoarding-built-hero.webp"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A clean developer portfolio: hero, project grid, experience list, contact, executed with great craft.",
+    "palette": ["#FFFFFF", "#111827", "#2563EB"],
+    "materials": ["clean grid", "soft shadows"],
+    "viewport": "Name and role at top left, a three-column project grid below, a short about and a contact close.",
+    "risk": "Indistinguishable from other developer portfolios by design."
+  },
+  "steer": true
+}
