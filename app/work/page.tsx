@@ -6,7 +6,7 @@ import { WorkIndex } from "@/components/work-index";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Products, client websites and side projects by Ameerul Hady.",
+  description: "Products, client work and side projects by Ameerul Hady.",
 };
 
 export default async function WorkPage() {
@@ -28,7 +28,7 @@ export default async function WorkPage() {
         <p className="label">Catalogue</p>
         <h1 className="display">All work</h1>
         <p className="measure" style={{ color: "var(--color-ink-2)" }}>
-          {projects.length} models: products, client websites and side projects. Open one for the spec sheet.
+          {projects.length} models: products, client work and side projects. Open one for the spec sheet.
         </p>
       </div>
       <WorkIndex items={items} />
