@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
+import { Hanken_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SanityLive } from "@/sanity/lib/live";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 import "./globals.css";
+
+const grotesk = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "Ameerul Hady", template: "%s | Ameerul Hady" },
@@ -10,9 +15,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={grotesk.variable}>
       <body>
+        <Header />
         {children}
+        <Footer />
         <SanityLive includeDrafts={false} />
         <Analytics />
       </body>
