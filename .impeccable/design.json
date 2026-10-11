@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-11T04:07:00.000Z",
+  "title": "Design System: Ameerul Hady",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Matte Ground",
+        "canonical": "#edebe6",
+        "tonalRamp": ["oklch(15.0% 0.007 88.6)", "oklch(26.4% 0.007 88.6)", "oklch(37.9% 0.007 88.6)", "oklch(49.3% 0.007 88.6)", "oklch(60.7% 0.007 88.6)", "oklch(72.1% 0.007 88.6)", "oklch(83.6% 0.007 88.6)", "oklch(95.0% 0.007 88.6)"]
+      },
+      "plate": {
+        "role": "neutral",
+        "displayName": "Plate",
+        "canonical": "#e2dfd8",
+        "tonalRamp": ["oklch(15.0% 0.010 87.5)", "oklch(26.4% 0.010 87.5)", "oklch(37.9% 0.010 87.5)", "oklch(49.3% 0.010 87.5)", "oklch(60.7% 0.010 87.5)", "oklch(72.1% 0.010 87.5)", "oklch(83.6% 0.010 87.5)", "oklch(95.0% 0.010 87.5)"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Near-Black Ink",
+        "canonical": "#1e1e1e",
+        "tonalRamp": ["oklch(15.0% 0.000 0.0)", "oklch(26.4% 0.000 0.0)", "oklch(37.9% 0.000 0.0)", "oklch(49.3% 0.000 0.0)", "oklch(60.7% 0.000 0.0)", "oklch(72.1% 0.000 0.0)", "oklch(83.6% 0.000 0.0)", "oklch(95.0% 0.000 0.0)"]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Mid Grey",
+        "canonical": "#5a5a56",
+        "tonalRamp": ["oklch(15.0% 0.006 106.6)", "oklch(26.4% 0.006 106.6)", "oklch(37.9% 0.006 106.6)", "oklch(49.3% 0.006 106.6)", "oklch(60.7% 0.006 106.6)", "oklch(72.1% 0.006 106.6)", "oklch(83.6% 0.006 106.6)", "oklch(95.0% 0.006 106.6)"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#cbc8bf",
+        "tonalRamp": ["oklch(15.0% 0.013 91.5)", "oklch(26.4% 0.013 91.5)", "oklch(37.9% 0.013 91.5)", "oklch(49.3% 0.013 91.5)", "oklch(60.7% 0.013 91.5)", "oklch(72.1% 0.013 91.5)", "oklch(83.6% 0.013 91.5)", "oklch(95.0% 0.013 91.5)"]
+      },
+      "signal": {
+        "role": "primary",
+        "displayName": "Signal Orange",
+        "canonical": "#e2461e",
+        "tonalRamp": ["oklch(15.0% 0.066 34.7)", "oklch(26.4% 0.097 34.7)", "oklch(37.9% 0.136 34.7)", "oklch(49.3% 0.175 34.7)", "oklch(60.7% 0.199 34.7)", "oklch(72.1% 0.176 34.7)", "oklch(83.6% 0.092 34.7)", "oklch(95.0% 0.025 34.7)"]
+      },
+      "ink-hover": {
+        "role": "neutral",
+        "displayName": "Pressed Black",
+        "canonical": "#000",
+        "tonalRamp": ["oklch(15.0% 0.000 0.0)", "oklch(26.4% 0.000 0.0)", "oklch(37.9% 0.000 0.0)", "oklch(49.3% 0.000 0.0)", "oklch(60.7% 0.000 0.0)", "oklch(72.1% 0.000 0.0)", "oklch(83.6% 0.000 0.0)", "oklch(95.0% 0.000 0.0)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page titles and the home headline." },
+      "headline": { "displayName": "Headline", "purpose": "Home section titles and model-sheet names." },
+      "title": { "displayName": "Title", "purpose": "Work-index names." },
+      "body": { "displayName": "Body", "purpose": "Reading text, held to 62ch." },
+      "label": { "displayName": "Label", "purpose": "Tracked uppercase metadata, including the home name and role line." }
+    },
+    "shadows": [
+      { "name": "header-hairline", "value": "0 1px 0 var(--color-rule)", "purpose": "The sticky header's lower edge." },
+      { "name": "footer-hairline", "value": "0 -1px 0 var(--color-rule)", "purpose": "The footer's upper edge." },
+      { "name": "dial-shadow", "value": "drop-shadow(0 6px 8px rgb(0 0 0 / 0.1))", "purpose": "The rotary knob." },
+      { "name": "lamp-halo", "value": "0 0 0 3px color-mix(in srgb, var(--color-signal) 22%, transparent)", "purpose": "The open availability lamp." },
+      { "name": "palette-lift", "value": "0 24px 60px -12px rgb(0 0 0 / 0.35), 0 0 0 1px var(--color-rule)", "purpose": "The open command palette, on a 38% ink scrim." },
+      { "name": "inset-stroke", "value": "inset 0 0 0 1px var(--color-ink)", "purpose": "Ghost buttons, pressed-idle filters, and carousel controls." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Dial, press, underlines, plates, index rows, and the page view transition." },
+      { "name": "ease-carousel", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Case-study carousel track and progress rail, 520ms." },
+      { "name": "press", "value": "160ms", "purpose": "Button, filter, and carousel press, scaling to 0.97." },
+      { "name": "underline", "value": "220ms", "purpose": "Text-link underline and model-title underline." },
+      { "name": "dial", "value": "240ms", "purpose": "Knob rotation. Cleared while dragging." },
+      { "name": "intro-rise", "value": "420ms", "purpose": "One-time intro load. Children stagger by 50ms. Reduced motion uses a 200ms fade." },
+      { "name": "view-transition", "value": "180ms", "purpose": "Cross-page root transition. Removed when reduced motion is requested." }
+    ],
+    "breakpoints": [
+      { "name": "dial-stack", "value": "30rem" },
+      { "name": "narrow", "value": "40rem" },
+      { "name": "index", "value": "48rem" },
+      { "name": "catalogue", "value": "52rem" },
+      { "name": "header-status", "value": "64rem" },
+      { "name": "compact-height", "value": "740px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Filled button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Case-study, resume, and error action. Ink fill, paper text, pill.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\">Visit site</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; height: 2.75rem; padding: 0 1.25rem; border: 0; border-radius: 999px; background: var(--color-ink); color: var(--color-paper); font-family: var(--font-sans); font-size: 0.9375rem; font-weight: 500; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 160ms ease; } .ds-btn-primary:hover { background: #000; } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Ghost button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary case-study action. Transparent pill with an inset ink stroke.",
+      "html": "<button class=\"ds-btn-ghost\" type=\"button\">Source on GitHub</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; height: 2.75rem; padding: 0 1.25rem; border: 0; border-radius: 999px; background: transparent; color: var(--color-ink); box-shadow: inset 0 0 0 1px var(--color-ink); font-family: var(--font-sans); font-size: 0.9375rem; font-weight: 500; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease; } .ds-btn-ghost:hover { background: var(--color-ink); color: var(--color-paper); } .ds-btn-ghost:active { transform: scale(0.97); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Text link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Home contact, socials, and inline references. Underlined type, not a capsule.",
+      "html": "<a class=\"ds-link\" href=\"#contact\">Get in touch</a>",
+      "css": ".ds-link { color: var(--color-ink); font-family: var(--font-sans); font-size: 1rem; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 100% 1px; background-position: 0 100%; background-repeat: no-repeat; padding-bottom: 1px; transition: background-size 220ms var(--ease-out); } .ds-link:hover { background-size: 0 1px; background-position: 100% 100%; } .ds-link:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Filter",
+      "kind": "chip",
+      "refersTo": "filter",
+      "description": "Work-index type filter. Hairline pill at rest, ink fill when pressed.",
+      "html": "<div class=\"ds-filters\" role=\"group\" aria-label=\"Filter by type\"><button class=\"ds-filter\" type=\"button\" aria-pressed=\"true\">All</button><button class=\"ds-filter\" type=\"button\" aria-pressed=\"false\">Product</button></div>",
+      "css": ".ds-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; } .ds-filter { height: 2.25rem; padding: 0 1rem; border: 0; border-radius: 999px; background: transparent; color: var(--color-ink-2); font-family: var(--font-sans); font-size: 0.875rem; box-shadow: inset 0 0 0 1px var(--color-rule); cursor: pointer; transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease; } .ds-filter[aria-pressed='true'] { background: var(--color-ink); color: var(--color-paper); box-shadow: none; } .ds-filter:hover:not([aria-pressed='true']) { color: var(--color-ink); box-shadow: inset 0 0 0 1px var(--color-ink); } .ds-filter:active { transform: scale(0.97); } .ds-filter:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Search control",
+      "kind": "button",
+      "refersTo": "search-button",
+      "description": "Header trigger for the command palette. Plate ground, 8px corners.",
+      "html": "<button class=\"ds-search\" type=\"button\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3\"/></svg><span>Search</span><kbd>⌘K</kbd></button>",
+      "css": ".ds-search { display: inline-flex; align-items: center; gap: 0.5rem; height: 2.25rem; padding: 0 0.75rem; border: 0; border-radius: 8px; background: var(--color-plate); color: var(--color-ink-2); font-family: var(--font-sans); font-size: 0.8125rem; cursor: pointer; } .ds-search kbd { font: inherit; color: var(--color-ink); } .ds-search:hover { background: var(--color-rule); } .ds-search:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Wordmark, primary links, and the availability lamp. Current and hover turn ink.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-wordmark\" href=\"/\">Ameerul Hady</a><nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"/work\" aria-current=\"page\">Work</a><a href=\"/#experience\">Experience</a><a href=\"/resume\">Resume</a><a href=\"/#contact\">Contact</a></nav><span class=\"ds-status\"><i class=\"ds-lamp\" data-state=\"open\"></i>Open to opportunities</span></header>",
+      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 3.75rem; background: var(--color-paper); box-shadow: 0 1px 0 var(--color-rule); font-family: var(--font-sans); color: var(--color-ink); } .ds-wordmark { font-weight: 600; letter-spacing: -0.02em; color: inherit; text-decoration: none; } .ds-nav { display: flex; align-items: center; gap: 2rem; font-size: 0.9375rem; } .ds-nav a { padding: 0.5rem 0.125rem; color: var(--color-ink-2); text-decoration: none; } .ds-nav a[aria-current='page'], .ds-nav a:hover { color: var(--color-ink); } .ds-nav a:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; } .ds-status { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-2); } .ds-lamp { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--color-signal); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-signal) 22%, transparent); }"
+    },
+    {
+      "name": "Command palette",
+      "kind": "input",
+      "refersTo": "command-input",
+      "description": "Instant search panel. Transparent field, ink selected row.",
+      "html": "<div class=\"ds-palette\"><input class=\"ds-palette-input\" placeholder=\"Jump to a project, section or link\" /><div class=\"ds-palette-label\">Go to</div><div class=\"ds-palette-item\" data-selected=\"true\"><span>All work</span><span>Work</span></div><div class=\"ds-palette-item\"><span>Resume</span><span>Go to</span></div></div>",
+      "css": ".ds-palette { width: min(36rem, 100%); background: var(--color-paper); border-radius: 12px; overflow: hidden; box-shadow: 0 24px 60px -12px rgb(0 0 0 / 0.35), 0 0 0 1px var(--color-rule); font-family: var(--font-sans); color: var(--color-ink); } .ds-palette-input { width: 100%; box-sizing: border-box; height: 3.25rem; padding: 0 1.25rem; border: 0; background: transparent; font: inherit; font-size: 1rem; color: var(--color-ink); box-shadow: 0 1px 0 var(--color-rule); } .ds-palette-input::placeholder { color: var(--color-ink-2); } .ds-palette-input:focus-visible { outline: 2px solid var(--color-ink); outline-offset: -2px; } .ds-palette-label { padding: 0.75rem 0.75rem 0.375rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-2); } .ds-palette-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0.5rem 0.25rem; padding: 0.625rem 0.75rem; border-radius: 8px; font-size: 0.9375rem; } .ds-palette-item span:last-child { opacity: 0.6; font-size: 0.8125rem; } .ds-palette-item[data-selected='true'] { background: var(--color-ink); color: var(--color-paper); }"
+    },
+    {
+      "name": "Spec table",
+      "kind": "custom",
+      "refersTo": "spec-row",
+      "description": "Ruled facts for a model. Ink top rule, hairline rows, mid-grey keys.",
+      "html": "<dl class=\"ds-spec\"><div><dt>Role</dt><dd>Product engineer</dd></div><div><dt>Type</dt><dd>Product</dd></div><div><dt>Stack</dt><dd>Next.js, TypeScript</dd></div></dl>",
+      "css": ".ds-spec { margin: 0; display: grid; border-top: 1px solid var(--color-ink); font-family: var(--font-sans); color: var(--color-ink); } .ds-spec > div { display: grid; grid-template-columns: minmax(6rem, 9rem) 1fr; gap: 1rem; padding: 0.625rem 0; border-bottom: 1px solid var(--color-rule); font-size: 0.9375rem; } .ds-spec dt { color: var(--color-ink-2); font-size: 0.8125rem; letter-spacing: 0.04em; } .ds-spec dd { margin: 0; }"
+    },
+    {
+      "name": "Catalogue plate",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "16/10 product well. Portrait screens share it, up to three across.",
+      "html": "<div class=\"ds-plate\" data-orient=\"portrait\"><span></span><span></span><span></span></div>",
+      "css": ".ds-plate { display: flex; align-items: stretch; justify-content: center; gap: 0.6rem; aspect-ratio: 16 / 10; width: 100%; padding: 0.7rem; background: var(--color-plate); border-radius: 6px; overflow: hidden; } .ds-plate span { flex: 1 1 0; min-width: 0; height: 100%; background: color-mix(in srgb, var(--color-ink) 14%, var(--color-plate)); }"
+    },
+    {
+      "name": "Rotary dial",
+      "kind": "custom",
+      "description": "Signature selector. Plate knob, signal pointer, ticks, and the model index.",
+      "html": "<div class=\"ds-dial-wrap\"><div class=\"ds-dial\" role=\"img\" aria-label=\"Model selector\"><svg viewBox=\"0 0 160 160\" aria-hidden=\"true\"><line x1=\"80\" y1=\"12\" x2=\"80\" y2=\"2\" stroke=\"var(--color-signal)\" stroke-width=\"3\" stroke-linecap=\"round\"/><line x1=\"148\" y1=\"48\" x2=\"156\" y2=\"44\" stroke=\"var(--color-ink-2)\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><line x1=\"148\" y1=\"112\" x2=\"156\" y2=\"116\" stroke=\"var(--color-ink-2)\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><line x1=\"12\" y1=\"112\" x2=\"4\" y2=\"116\" stroke=\"var(--color-ink-2)\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><line x1=\"12\" y1=\"48\" x2=\"4\" y2=\"44\" stroke=\"var(--color-ink-2)\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><g><circle cx=\"80\" cy=\"80\" r=\"58\" fill=\"var(--color-plate)\"/><circle cx=\"80\" cy=\"80\" r=\"58\" fill=\"none\" stroke=\"var(--color-ink)\" stroke-opacity=\"0.14\"/><circle cx=\"80\" cy=\"80\" r=\"46\" fill=\"none\" stroke=\"var(--color-ink)\" stroke-opacity=\"0.1\"/><circle cx=\"80\" cy=\"80\" r=\"34\" fill=\"none\" stroke=\"var(--color-ink)\" stroke-opacity=\"0.07\"/><line x1=\"80\" y1=\"30\" x2=\"80\" y2=\"52\" stroke=\"var(--color-signal)\" stroke-width=\"4\" stroke-linecap=\"round\"/></g></svg></div><nav class=\"ds-index\" aria-label=\"Models\"><a href=\"#m-01\" aria-current=\"true\"><span>M-01</span><span>Model</span><i></i></a><a href=\"#m-02\"><span>M-02</span><span>Model</span><i></i></a></nav></div>",
+      "css": ".ds-dial-wrap { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 1.5rem; font-family: var(--font-sans); } .ds-dial { width: 8.5rem; filter: drop-shadow(0 6px 8px rgb(0 0 0 / 0.1)); } .ds-dial svg { width: 100%; height: auto; overflow: visible; display: block; } .ds-index { display: grid; border-top: 1px solid var(--color-rule); } .ds-index a { display: grid; grid-template-columns: 3.25rem 1fr auto; align-items: center; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid var(--color-rule); font-size: 0.9375rem; color: var(--color-ink-2); text-decoration: none; } .ds-index a[aria-current='true'] { color: var(--color-ink); } .ds-index a span:first-child { font-size: 0.75rem; letter-spacing: 0.08em; } .ds-index i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: transparent; } .ds-index a[aria-current='true'] i { background: var(--color-signal); } .ds-index a:hover { color: var(--color-ink); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Model Series",
+    "overview": "A product catalogue for one engineer. Each project is a numbered model with a spec table, in the manner of Braun literature: calm, exact, and trustworthy. The ground is matte warm-grey plastic, the type is a single neutral grotesque, and a rotary dial with tick marks is the recurring object.\n\nDensity stays quiet. The home page is a sticky intro beside catalogue sheets, and those sheets rest at full opacity. The name and role share one tracked uppercase line above the display headline. Section titles on the home page stand alone. Motion is the dial, a one-time load on the intro column, and the case-study carousel.",
+    "keyCharacteristics": [
+      "Matte warm-grey ground, plate-colored image wells, and near-black ink",
+      "One signal orange, used for selection and status",
+      "Hanken Grotesk as the only screen face, with tracked uppercase labels",
+      "The name and role locked on the label line above the home headline",
+      "Model numbers (M-01) and spec tables with ruled rows",
+      "One 16/10 plate for every product, portrait screens up to three across",
+      "Underlined contact links on the home page, and filled and ghost capsules on case studies"
+    ],
+    "rules": [
+      { "name": "The Signal Rule", "body": "Signal orange marks selection and status: the dial's active tick and pointer, the current model dot, the availability lamp, the text caret, the work-index number on hover, and the pointer on a plate with no photograph. It is not a fill for buttons, plates, or sections.", "section": "colors" },
+      { "name": "The One Face Rule", "body": "Hanken Grotesk is the only screen face. Size, weight, and tracking make the hierarchy.", "section": "typography" },
+      { "name": "The Name Line Rule", "body": "On the home page the name and role share one label line, joined by a middle dot, directly above the display headline. The line is the label style: 0.75rem, weight 500, 0.08em tracking, uppercase, mid-grey.", "section": "typography" },
+      { "name": "The Catalogue Column Rule", "body": "From 52rem the home page is a 34/66 split. The intro is sticky and centered under the header. Catalogue sheets occupy the wide column.", "section": "layout" },
+      { "name": "The Shared Plate Rule", "body": "Landscape and portrait product shots share one 16/10 plate. Portrait screens sit side by side inside it, up to three across.", "section": "layout" },
+      { "name": "The Hairline Rule", "body": "Separate regions with a 1px rule. Spec tables and revision lists open on an ink rule and continue on hairline rows. Sheets, rows, and the header stay flat.", "section": "elevation" },
+      { "name": "The Still Sheet Rule", "body": "Catalogue sheets and the home sections below them are present at full opacity. The intro column is the only place that runs an entrance animation.", "section": "elevation" },
+      { "name": "The Two Silhouettes Rule", "body": "Plates are softly squared at 6px. Button actions are pills. Home contact actions are underlined words, with no capsule around them.", "section": "shapes" },
+      { "name": "The Split Control Rule", "body": "Home contact controls are underlined type links. Case-study pages use the filled capsule and the ghost capsule. Each stays on its own page.", "section": "components" }
+    ],
+    "dos": [
+      "Do keep the page on the matte ground, images in plate wells, and text in near-black ink.",
+      "Do leave signal orange for selection and status, as the Signal Rule states.",
+      "Do set the home name and role in the tracked uppercase label line above the display headline.",
+      "Do number models M-01 and place facts in ruled spec rows.",
+      "Do put every product screen in the 16/10 plate, with portrait shots side by side, up to three.",
+      "Do run the load sequence once, on the intro column only, and let sheets rest at full opacity.",
+      "Do use underlined links for home contact, and the filled and ghost capsules on case studies.",
+      "Do keep Contact in the header at 390px, and hide Experience under 40rem."
+    ],
+    "donts": [
+      "Don't lay projects out as a card grid.",
+      "Don't open the page with a dark hero. The scheme is light.",
+      "Don't use signal orange as a button fill or a section background.",
+      "Don't fade or slide catalogue sheets in as they enter the viewport.",
+      "Don't put capsule buttons on the home contact actions.",
+      "Don't drop Contact from the header at narrow widths.",
+      "Don't list a project on the home catalogue without a cover photograph."
+    ]
+  }
+}
