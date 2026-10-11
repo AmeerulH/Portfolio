@@ -14,6 +14,9 @@ export type ShowcaseFrame = {
 /** One product stage. Frames slide as a single track; reduced motion jumps. */
 export function Showcase({ frames, label, name }: { frames: ShowcaseFrame[]; label: string; name?: string }) {
   const count = frames.length;
+  const portrait = frames.every((item) => item.height > item.width * 1.15);
+  const per = portrait ? 3 : 1;
+  const last = Math.max(0, count - per);
   const [index, setIndex] = useState(0);
   const [drag, setDrag] = useState(0);
   const [dragging, setDragging] = useState(false);
@@ -21,9 +24,9 @@ export function Showcase({ frames, label, name }: { frames: ShowcaseFrame[]; lab
   const stage = useRef<HTMLDivElement>(null);
 
   const go = useCallback((next: number) => {
-    setIndex(Math.min(count - 1, Math.max(0, next)));
+    setIndex(Math.min(last, Math.max(0, next)));
     setDrag(0);
-  }, [count]);
+  }, [last]);
 
   function onPointerDown(event: PointerEvent<HTMLDivElement>) {
     if (count < 2 || event.button !== 0) return;
@@ -35,7 +38,7 @@ export function Showcase({ frames, label, name }: { frames: ShowcaseFrame[]; lab
   function onPointerMove(event: PointerEvent<HTMLDivElement>) {
     if (!dragging) return;
     let dx = event.clientX - startX.current;
-    if ((index === 0 && dx > 0) || (index === count - 1 && dx < 0)) dx *= 0.35;
+    if ((index === 0 && dx > 0) || (index === last && dx < 0)) dx *= 0.35;
     setDrag(dx);
   }
 
@@ -59,10 +62,13 @@ export function Showcase({ frames, label, name }: { frames: ShowcaseFrame[]; lab
   }
 
   const frame = frames[index];
-  const portrait = frames.every((item) => item.height > item.width * 1.15);
+  const end = Math.min(count, index + per);
+  const counter = per > 1 && end > index + 1
+    ? `${String(index + 1).padStart(2, "0")}–${String(end).padStart(2, "0")}`
+    : String(index + 1).padStart(2, "0");
 
   return (
-    <section className="showcase" data-orient={portrait ? "portrait" : undefined} aria-roledescription="carousel" aria-label={label} onKeyDown={onKeyDown}>
+    <section className="showcase" data-orient={portrait ? "portrait" : undefined} style={{ ["--per" as string]: per }} aria-roledescription="carousel" aria-label={label} onKeyDown={onKeyDown}>
       <div
         ref={stage}
         className="showcase-stage"
@@ -73,16 +79,16 @@ export function Showcase({ frames, label, name }: { frames: ShowcaseFrame[]; lab
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        <div className="showcase-track" style={{ transform: `translate3d(calc(${-index * 100}% + ${drag}px), 0, 0)` }}>
+        <div className="showcase-track" style={{ transform: `translate3d(calc(${(-index * 100) / per}% + ${drag}px), 0, 0)` }}>
           {frames.map((item, i) => (
-            <figure key={item.src} className="showcase-frame" aria-hidden={i !== index || undefined}>
+            <figure key={item.src} className="showcase-frame" aria-hidden={i < index || i >= index + per || undefined}>
               <Image
                 src={item.src}
                 alt={i === index ? item.alt : ""}
                 width={item.width}
                 height={item.height}
-                sizes="(min-width: 64rem) 72rem, 100vw"
-                priority={i === 0}
+                sizes={portrait ? "(min-width: 64rem) 22rem, 30vw" : "(min-width: 64rem) 72rem, 100vw"}
+                priority={i < per}
                 draggable={false}
               />
             </figure>
@@ -93,16 +99,16 @@ export function Showcase({ frames, label, name }: { frames: ShowcaseFrame[]; lab
       {count > 1 && (
         <div className="showcase-bar">
           <p className="label">
-            {String(index + 1).padStart(2, "0")}
+            {counter}
             <span className="sep"> / </span>
             {String(count).padStart(2, "0")}
           </p>
           <p className="showcase-caption" key={index} aria-live="polite">{frame.alt}</p>
           <div className="showcase-nav">
-            <button type="button" className="showcase-btn" aria-label="Previous frame" onClick={() => go(index - 1)} disabled={index === 0}>
+            <button type="button" className="showcase-btn" aria-label="Previous frame" onMouseDown={(event) => event.preventDefault()} onClick={() => go(index - 1)} disabled={index === 0}>
               <ChevronLeft size={18} aria-hidden />
             </button>
-            <button type="button" className="showcase-btn" aria-label="Next frame" onClick={() => go(index + 1)} disabled={index === count - 1}>
+            <button type="button" className="showcase-btn" aria-label="Next frame" onMouseDown={(event) => event.preventDefault()} onClick={() => go(index + 1)} disabled={index === last}>
               <ChevronRight size={18} aria-hidden />
             </button>
           </div>

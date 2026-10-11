@@ -19,7 +19,7 @@ const EXPERIENCE_QUERY = defineQuery(`
     "stack": stack[]->{ _id, name, category }
   }`);
 const PROJECTS_QUERY = defineQuery(`*[_type == "project" && defined(slug.current)] | order(order asc, title asc){ ${PROJECT_FIELDS} }`);
-const FEATURED_QUERY = defineQuery(`*[_type == "project" && featured == true && defined(slug.current)] | order(order asc){ ${PROJECT_FIELDS} }`);
+const FEATURED_QUERY = defineQuery(`*[_type == "project" && featured == true && defined(slug.current)] | order(order asc){ ${PROJECT_FIELDS}, gallery[] ${IMG} }`);
 const PROJECT_QUERY = defineQuery(`*[_type == "project" && slug.current == $slug][0]{
   ${PROJECT_FIELDS},
   gallery[] ${IMG},
