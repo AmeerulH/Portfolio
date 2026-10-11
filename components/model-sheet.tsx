@@ -8,7 +8,7 @@ import { Plate } from "./plate";
 export function ModelSheet({ project, number, stats, priority }: { project: Project; number: string; stats?: RepoStats; priority?: boolean }) {
   const href = `/work/${project.slug}`;
   return (
-    <article id={`m-${project.slug}`} className="sheet reveal">
+    <article id={`m-${project.slug}`} className="sheet">
       <Link href={href} aria-label={`${project.title}, case study`} tabIndex={-1}>
         <Plate project={project} number={number} priority={priority} />
       </Link>

@@ -8,10 +8,10 @@ function portrait(image?: SanityImage) {
 }
 
 /** The cover plate. Phone products share the landscape frame, several screens across. */
-export function Plate({ project, number, priority }: { project: Pick<Project, "title" | "cover" | "gallery" | "slug">; number: string; priority?: boolean }) {
+export function Plate({ project, number, priority, max = 3 }: { project: Pick<Project, "title" | "cover" | "gallery" | "slug">; number: string; priority?: boolean; max?: number }) {
   const cover = project.cover;
   const phone = portrait(cover);
-  const shots = (phone ? [cover, ...(project.gallery ?? [])] : [cover]).filter((image): image is SanityImage => !!image?.asset && (!phone || portrait(image))).slice(0, 3);
+  const shots = (phone ? [cover, ...(project.gallery ?? [])] : [cover]).filter((image): image is SanityImage => !!image?.asset && (!phone || portrait(image))).slice(0, max);
   return (
     <span className="plate" data-orient={phone ? "portrait" : undefined} style={{ viewTransitionName: `plate-${project.slug}` }}>
       {shots.length > 0 ? (

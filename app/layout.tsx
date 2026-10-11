@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SanityLive } from "@/sanity/lib/live";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { TabBar } from "@/components/tab-bar";
 import "./globals.css";
 
 const grotesk = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", display: "optional" });
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
+        <TabBar />
         <SanityLive includeDrafts={false} />
         <Analytics />
       </body>

@@ -2,7 +2,15 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useCallback, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
+import { useCallback, useRef, useState, useSyncExternalStore, type KeyboardEvent, type PointerEvent } from "react";
+
+const NARROW = "(max-width: 40rem)";
+const subscribeNarrow = (notify: () => void) => {
+  const query = window.matchMedia(NARROW);
+  query.addEventListener("change", notify);
+  return () => query.removeEventListener("change", notify);
+};
+const isNarrow = () => window.matchMedia(NARROW).matches;
 
 export type ShowcaseFrame = {
   src: string;
@@ -15,7 +23,8 @@ export type ShowcaseFrame = {
 export function Showcase({ frames, label, name }: { frames: ShowcaseFrame[]; label: string; name?: string }) {
   const count = frames.length;
   const portrait = frames.every((item) => item.height > item.width * 1.15);
-  const per = portrait ? 3 : 1;
+  const narrow = useSyncExternalStore(subscribeNarrow, isNarrow, () => false);
+  const per = portrait ? (narrow ? 2 : 3) : 1;
   const last = Math.max(0, count - per);
   const [index, setIndex] = useState(0);
   const [drag, setDrag] = useState(0);
@@ -68,7 +77,7 @@ export function Showcase({ frames, label, name }: { frames: ShowcaseFrame[]; lab
     : String(index + 1).padStart(2, "0");
 
   return (
-    <section className="showcase" data-orient={portrait ? "portrait" : undefined} style={{ ["--per" as string]: per }} aria-roledescription="carousel" aria-label={label} onKeyDown={onKeyDown}>
+    <section className="showcase" data-orient={portrait ? "portrait" : undefined} aria-roledescription="carousel" aria-label={label} onKeyDown={onKeyDown}>
       <div
         ref={stage}
         className="showcase-stage"
@@ -87,7 +96,7 @@ export function Showcase({ frames, label, name }: { frames: ShowcaseFrame[]; lab
                 alt={i === index ? item.alt : ""}
                 width={item.width}
                 height={item.height}
-                sizes={portrait ? "(min-width: 64rem) 22rem, 30vw" : "(min-width: 64rem) 72rem, 100vw"}
+                sizes={portrait ? "(min-width: 64rem) 22rem, (min-width: 40rem) 30vw, 50vw" : "(min-width: 64rem) 72rem, 100vw"}
                 priority={i < per}
                 draggable={false}
               />
