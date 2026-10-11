@@ -625,6 +625,7 @@ p { margin: 0; text-wrap: pretty; }
 /* Below the two-column layout the catalogue is one swipeable row, not a long scroll of sheets. */
 @media (max-width: 51.99rem) {
   .intro .dial-wrap, .models { display: none; }
+  .intro { gap: 1.125rem; }
   .intro .enter { gap: 1.125rem; }
   .rail {
     display: grid;

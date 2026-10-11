@@ -51,9 +51,9 @@ export default async function Home() {
               </span>
             )}
           </div>
-          <ProjectRail projects={projects} />
           {models.length > 0 && <Dial models={models} />}
         </div>
+        <ProjectRail projects={projects} />
       </aside>
 
       <div style={{ display: "grid", gap: "clamp(4rem, 8vw, 7rem)" }}>
