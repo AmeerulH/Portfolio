@@ -107,7 +107,14 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
       </dl>
 
       {!!project.caseStudy?.length && (
-        <div className="prose"><PortableText value={project.caseStudy} components={components} /></div>
+        <div className="chapters">
+          {chaptersOf(project.caseStudy).map((chapter, i) => (
+            <section className="chapter" key={i} aria-label={chapter.title}>
+              {chapter.title && <h2 className="chapter-title">{chapter.title}</h2>}
+              <div className="prose"><PortableText value={chapter.body} components={components} /></div>
+            </section>
+          ))}
+        </div>
       )}
 
       <nav className="pager" aria-label="More work">
@@ -116,6 +123,22 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
       </nav>
     </main>
   );
+}
+
+type Chapter = { title?: string; body: any[] };
+
+/** Split the case study at its second-level headings so each section can sit beside its title. */
+function chaptersOf(blocks: any[]): Chapter[] {
+  const chapters: Chapter[] = [];
+  for (const block of blocks) {
+    if (block._type === "block" && block.style === "h2") {
+      chapters.push({ title: (block.children ?? []).map((c: { text?: string }) => c.text ?? "").join(""), body: [] });
+      continue;
+    }
+    if (!chapters.length) chapters.push({ body: [] });
+    chapters[chapters.length - 1].body.push(block);
+  }
+  return chapters;
 }
 
 function framesFor(project: { title: string; cover?: SanityImage; gallery?: SanityImage[] }): ShowcaseFrame[] {
