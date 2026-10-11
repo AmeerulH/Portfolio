@@ -197,10 +197,10 @@ p { margin: 0; text-wrap: pretty; }
 }
 @media (min-width: 52rem) {
   .catalogue { grid-template-columns: minmax(0, 34fr) minmax(0, 66fr); gap: clamp(2.5rem, 5vw, 6rem); padding-block: 3.5rem 8rem; }
-  .intro { position: sticky; top: calc(var(--header-h) + 3.5rem); align-self: start; }
 }
 
-.intro { display: grid; gap: 1.75rem; }
+.intro { display: grid; }
+.intro .enter { display: grid; gap: 1.25rem; align-content: start; }
 .intro .role { color: var(--color-ink-2); }
 
 /* ───────── Dial ───────── */
@@ -254,7 +254,14 @@ p { margin: 0; text-wrap: pretty; }
   isolation: isolate;
 }
 .plate img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 400ms var(--ease-out); }
-@media (hover: hover) and (pointer: fine) { .sheet:hover .plate img { transform: scale(1.025); } }
+@media (hover: hover) and (pointer: fine) { .sheet:hover .plate:not([data-orient="portrait"]) img { transform: scale(1.025); } }
+/* Phone-only products stay a whole screen, not a landscape crop. */
+.plate[data-orient="portrait"] {
+  aspect-ratio: 9 / 16;
+  width: min(100%, 22rem);
+  margin-inline: auto;
+}
+.plate[data-orient="portrait"] img { object-fit: contain; object-position: center; }
 .plate .stamp {
   position: absolute;
   inset: 0;
@@ -375,16 +382,26 @@ p { margin: 0; text-wrap: pretty; }
 .hover-preview {
   position: fixed; z-index: 30; width: 20rem; aspect-ratio: 16/10; pointer-events: none;
   border-radius: 6px; overflow: hidden; background: var(--color-plate);
-  opacity: 0; transform: translate3d(0, 0, 0) scale(0.97);
-  transition: opacity 160ms ease-out;
+  opacity: 0; transform: translate3d(0, 0, 0) scale(0.96);
+  transition: opacity 160ms var(--ease-out), transform 180ms var(--ease-out);
 }
-.hover-preview[data-on="true"] { opacity: 1; }
+.hover-preview[data-on="true"] { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
 .hover-preview img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ───────── Case study ───────── */
 
 .case { display: grid; gap: 3rem; padding-block: 3rem 8rem; }
 .case-head { display: grid; gap: 1.25rem; }
+/* A phone product sits beside its title, so the whole screen is in the first view. */
+@media (min-width: 64rem) {
+  .case:has(.showcase[data-orient="portrait"]) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: clamp(2rem, 4vw, 4.5rem);
+    align-items: center;
+  }
+  .case:has(.showcase[data-orient="portrait"]) .showcase { grid-column: 2; grid-row: 1; }
+  .case:has(.showcase[data-orient="portrait"]) > :not(.case-head):not(.showcase) { grid-column: 1 / -1; }
+}
 .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); border-top: 1px solid var(--color-ink); }
 .metrics > div { padding: 1rem 1rem 1rem 0; border-bottom: 1px solid var(--color-rule); }
 .metrics dt { color: var(--color-ink-2); font-size: 0.8125rem; letter-spacing: 0.04em; }
@@ -398,9 +415,115 @@ p { margin: 0; text-wrap: pretty; }
 .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
 .gallery img, .prose img { width: 100%; height: auto; border-radius: 6px; display: block; background: var(--color-plate); }
 
+/* Product stage: one frame, the rest waiting on the same track. */
+.showcase { display: grid; gap: 0.875rem; }
+.showcase-stage {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+  background: var(--color-plate);
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+.showcase-stage[data-dragging="true"] { cursor: grabbing; }
+.showcase[data-orient="portrait"] {
+  justify-items: stretch;
+  width: min(100%, 22rem, max(18rem, calc((100dvh - var(--header-h) - 14rem) * 9 / 16)));
+  justify-self: center;
+}
+.showcase[data-orient="portrait"] .showcase-stage { aspect-ratio: 9 / 16; width: 100%; }
+.showcase[data-orient="portrait"] .showcase-frame img {
+  left: 0.375rem;
+  top: 0.375rem;
+  width: calc(100% - 0.75rem);
+  height: calc(100% - 0.75rem);
+}
+.showcase-track {
+  display: flex;
+  height: 100%;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.showcase-stage[data-dragging="true"] .showcase-track { transition: none; }
+.showcase-frame {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+}
+.showcase-frame img {
+  position: absolute;
+  left: clamp(0.75rem, 2vw, 1.5rem);
+  top: clamp(0.75rem, 2vw, 1.5rem);
+  width: calc(100% - 2 * clamp(0.75rem, 2vw, 1.5rem));
+  height: calc(100% - 2 * clamp(0.75rem, 2vw, 1.5rem));
+  object-fit: contain;
+  border-radius: 4px;
+}
+.showcase-bar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+}
+.showcase-caption {
+  color: var(--color-ink-2);
+  font-size: 0.9375rem;
+  animation: fade 280ms var(--ease-out);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.showcase-nav { display: flex; gap: 0.5rem; }
+.showcase-btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px var(--color-ink);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms var(--ease-out);
+}
+.showcase-btn:disabled {
+  color: var(--color-ink-2);
+  box-shadow: inset 0 0 0 1px var(--color-rule);
+  cursor: default;
+}
+.showcase-rail {
+  grid-column: 1 / -1;
+  height: 2px;
+  background: var(--color-rule);
+  overflow: hidden;
+}
+.showcase-rail span {
+  display: block;
+  height: 100%;
+  background: var(--color-ink);
+  transform-origin: left center;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (max-width: 40rem) {
+  .showcase-bar { grid-template-columns: 1fr auto; }
+  .showcase-caption { grid-column: 1 / -1; }
+}
+
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; border-top: 1px solid var(--color-ink); }
 .pager a { display: grid; gap: 0.25rem; padding: 1.25rem 0; }
 .pager a:last-child { text-align: right; }
+.pager a span:last-child { display: inline-block; transition: transform 180ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .pager a:first-child:hover span:last-child { transform: translateX(-0.35rem); }
+  .pager a:last-child:hover span:last-child { transform: translateX(0.35rem); }
+  .showcase-btn:not(:disabled):hover { background: var(--color-ink); color: var(--color-paper); }
+  .showcase-btn:not(:disabled):active { transform: scale(0.97); }
+}
 
 /* ───────── Command palette (opens instantly, no animation) ───────── */
 
@@ -438,7 +561,8 @@ p { margin: 0; text-wrap: pretty; }
 
 @media (prefers-reduced-motion: reduce) {
   .enter > *, .reveal { animation-name: fade; animation-timeline: auto; animation-range: normal; animation-duration: 200ms; }
-  .dial .knob, .plate img, .index-row { transition: none; }
+  .dial .knob, .plate img, .index-row, .hover-preview, .showcase-track, .showcase-rail span, .showcase-btn, .pager a span { transition: none; }
+  .showcase-caption { animation: none; }
   .link, .sheet h3 a { transition: none; }
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
@@ -456,21 +580,38 @@ p { margin: 0; text-wrap: pretty; }
 @media (max-width: 30rem) { .dial-wrap { grid-template-columns: 1fr; } .dial { width: 7.5rem; } }
 .contrib { gap: 2px; } .contrib .week { gap: 2px; }
 
-/* Sticky intro: always fits the viewport; long project lists scroll inside it */
+/* One scroll: the intro stays put and is compact enough to fit beside the work. */
 @media (min-width: 52rem) {
   .intro {
     position: sticky;
-    top: calc(var(--header-h) + 2rem);
-    max-height: calc(100dvh - var(--header-h) - 3rem);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: none;
+    top: calc(var(--header-h) + 1.25rem);
+    align-self: start;
   }
-  .intro::-webkit-scrollbar { display: none; }
-  .intro .display { font-size: clamp(1.75rem, 0.9rem + 2vw, 2.75rem); }
+  .intro .enter { gap: 0.875rem; }
+  .intro .display { font-size: clamp(1.6rem, 0.45rem + 1.55vw, 2.25rem); line-height: 1.05; }
+  .intro .measure { font-size: 0.9375rem; line-height: 1.4; }
+  .intro .dial-wrap { align-items: end; gap: 0.75rem 1rem; }
+  .intro .dial { width: 6.25rem; }
+  .intro .model-index a {
+    grid-template-columns: 2.75rem minmax(0, 1fr) auto;
+    padding: 0.28rem 0;
+    font-size: 0.875rem;
+  }
+  .intro .model-index a span:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
-@media (min-width: 52rem) and (max-width: 74.99rem) {
-  .intro .dial-wrap { grid-template-columns: 1fr; justify-items: start; }
+/* Short laptops: keep the side column and the phone inside one viewport. */
+@media (min-width: 52rem) and (max-height: 740px) {
+  .catalogue { padding-block: 1.25rem 4rem; }
+  .intro .enter { gap: 0.5rem; }
+  .intro .display { font-size: clamp(1.35rem, 0.4rem + 1.3vw, 1.85rem); }
+  .intro .measure { font-size: 0.875rem; line-height: 1.32; }
+  .intro .dial { width: 5.25rem; }
+  .intro .model-index a { padding: 0.1rem 0; font-size: 0.8125rem; }
+  .plate[data-orient="portrait"] { width: min(100%, 17.5rem); }
 }
 
 .plate .stamp::before { content: attr(data-n); }

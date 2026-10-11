@@ -32,7 +32,10 @@ export default async function Home() {
     <main className="wrap catalogue">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <aside className="intro">
-        <div className="enter" style={{ display: "grid", gap: "1.5rem" }}>
+        <div className="enter">
+          {(settings?.name || settings?.role) && (
+            <p className="label">{[settings?.name, settings?.role].filter(Boolean).join(" · ")}</p>
+          )}
           <h1 className="display">{settings?.headline}</h1>
           {settings?.summary && <p className="measure" style={{ color: "var(--color-ink-2)" }}>{settings.summary}</p>}
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem" }}>

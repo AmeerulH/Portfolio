@@ -6,9 +6,11 @@ import { ArrowUpRight } from "lucide-react";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { getProject, getProjects, getProjectSlugs } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import type { SanityImage } from "@/sanity/types";
 import { getGithubData } from "@/lib/github";
 import { kindLabel, modelNumber, monthYear } from "@/lib/format";
 import { Plate } from "@/components/plate";
+import { Showcase, type ShowcaseFrame } from "@/components/showcase";
 
 export async function generateStaticParams() {
   const slugs = await getProjectSlugs();
@@ -53,6 +55,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
   const next = index < all.length - 1 ? all[index + 1] : undefined;
   const gh = project.repo ? (await getGithubData([project.repo])).repos[project.repo] : undefined;
   const number = modelNumber(Math.max(index, 0));
+  const frames = framesFor(project);
 
   return (
     <main className="wrap case">
@@ -74,7 +77,11 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
         </div>
       </div>
 
-      <Plate project={project} number={number} priority />
+      {frames.length > 0 ? (
+        <Showcase frames={frames} label={`${project.title} screens`} name={`plate-${project.slug}`} />
+      ) : (
+        <Plate project={project} number={number} priority />
+      )}
 
       {!!project.metrics?.length && (
         <dl className="metrics">
@@ -103,28 +110,29 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
         <div className="prose"><PortableText value={project.caseStudy} components={components} /></div>
       )}
 
-      {!!project.gallery?.length && (
-        <section className="gallery" aria-label="Gallery">
-          {project.gallery.map((g, i) =>
-            g.asset ? (
-              <figure key={i} style={{ margin: 0 }}>
-                <Image
-                  src={urlFor(g).width(1200).url()}
-                  alt={g.alt ?? ""}
-                  width={g.asset.metadata?.dimensions?.width ?? 1200}
-                  height={g.asset.metadata?.dimensions?.height ?? 800}
-                  sizes="(min-width: 64rem) 33vw, 100vw"
-                />
-              </figure>
-            ) : null,
-          )}
-        </section>
-      )}
-
       <nav className="pager" aria-label="More work">
         {prev ? <Link href={`/work/${prev.slug}`}><span className="label">Previous</span><span>{prev.title}</span></Link> : <span />}
         {next ? <Link href={`/work/${next.slug}`}><span className="label">Next</span><span>{next.title}</span></Link> : <span />}
       </nav>
     </main>
   );
+}
+
+function framesFor(project: { title: string; cover?: SanityImage; gallery?: SanityImage[] }): ShowcaseFrame[] {
+  const seen = new Set<string>();
+  const frames: ShowcaseFrame[] = [];
+  for (const image of [project.cover, ...(project.gallery ?? [])]) {
+    if (!image?.asset) continue;
+    const src = urlFor(image).width(1600).url();
+    if (seen.has(src)) continue;
+    seen.add(src);
+    const dims = image.asset.metadata?.dimensions;
+    frames.push({
+      src,
+      alt: image.alt || project.title,
+      width: dims?.width ?? 1600,
+      height: dims?.height ?? 1000,
+    });
+  }
+  return frames;
 }
