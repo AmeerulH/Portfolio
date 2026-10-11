@@ -699,3 +699,13 @@ p { margin: 0; text-wrap: pretty; }
   .showcase[data-orient="portrait"] { --per: 2; }
   .showcase[data-orient="portrait"] .showcase-stage { aspect-ratio: 7 / 8; }
 }
+
+/* Case-study stage: one screen. The stage fills the viewport under the header and the controls stay in view. */
+@media (min-width: 52rem) {
+  .showcase {
+    height: max(30rem, calc(100svh - var(--header-h) - 1.5rem));
+    grid-template-rows: minmax(0, 1fr) auto;
+    scroll-margin-top: calc(var(--header-h) + 0.75rem);
+  }
+  .showcase-stage { aspect-ratio: auto; min-height: 0; }
+}
