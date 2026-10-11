@@ -710,13 +710,13 @@ p { margin: 0; text-wrap: pretty; }
   .showcase-stage { aspect-ratio: auto; min-height: 0; }
 }
 
-/* Case-study text reads as a spec sheet: the section title in the left column, its text beside it. */
-.chapters { display: grid; border-top: 1px solid var(--color-ink); }
-.chapter { display: grid; gap: 1rem; padding-block: 2rem; border-bottom: 1px solid var(--color-rule); min-width: 0; }
-.chapter-title { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; margin: 0; }
-.chapter .prose { max-width: 46rem; font-size: 1.0625rem; }
+/* Case-study text: numbered sections, title directly above its text, two across on desktop. */
+.chapters { display: grid; gap: 2.5rem; counter-reset: chapter; }
+.chapter { display: grid; align-content: start; gap: 0.875rem; padding-top: 1rem; border-top: 1px solid var(--color-ink); min-width: 0; counter-increment: chapter; }
+.chapter::before { content: counter(chapter, decimal-leading-zero); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; color: var(--color-ink-2); }
+.chapter-title { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.025em; line-height: 1.15; margin: 0; }
+.chapter .prose { max-width: 36rem; font-size: 1.0625rem; }
 .chapter .prose > :first-child { margin-top: 0; }
 @media (min-width: 52rem) {
-  .chapter { grid-template-columns: minmax(0, 34fr) minmax(0, 66fr); gap: clamp(2.5rem, 5vw, 6rem); padding-block: 2.5rem; }
-  .chapter-title { position: sticky; top: calc(var(--header-h) + 1.5rem); align-self: start; }
+  .chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.5rem clamp(2.5rem, 5vw, 6rem); }
 }
