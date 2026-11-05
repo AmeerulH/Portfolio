@@ -10,6 +10,13 @@ import "./globals.css";
 const grotesk = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", display: "optional" });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: [
+      { url: "/favicon.ico?v=a1", sizes: "16x16 32x32 48x48 64x64" },
+      { url: "/icon.svg?v=a1", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png?v=a1",
+  },
   title: { default: "Ameerul Hady", template: "%s | Ameerul Hady" },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-ameerulh.vercel.app"),
 };

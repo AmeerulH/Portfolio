@@ -88,7 +88,7 @@ export default async function Home() {
                   <div>
                     <h3>
                       {j.website ? <a className="link" href={j.website} target="_blank" rel="noopener noreferrer">{j.company}</a> : j.company}
-                      <span style={{ color: "var(--color-ink-2)", fontWeight: 400 }}> · {j.role}</span>
+                      <span className="revision-role">{j.role.split(" · ").map((part) => <span key={part}>{part}</span>)}</span>
                     </h3>
                     {j.summary && <p style={{ marginTop: "0.5rem", color: "var(--color-ink-2)" }}>{j.summary}</p>}
                     {!!j.highlights?.length && <ul>{j.highlights.map((h) => <li key={h}>{h}</li>)}</ul>}

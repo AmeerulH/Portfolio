@@ -153,7 +153,8 @@ p { margin: 0; text-wrap: pretty; }
   justify-content: space-between;
   gap: 1.5rem;
 }
-.wordmark { font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; }
+.wordmark { display: inline-flex; align-items: center; gap: 0.625rem; font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; }
+.wordmark-icon { flex: none; width: 1.75rem; height: 1.75rem; }
 .nav { display: flex; align-items: center; gap: clamp(0.75rem, 2.2vw, 2rem); font-size: 0.9375rem; }
 .nav a { padding: 0.5rem 0.125rem; color: var(--color-ink-2); transition: color 160ms ease; }
 .nav a[aria-current="page"] { color: var(--color-ink); }
@@ -332,15 +333,16 @@ p { margin: 0; text-wrap: pretty; }
 .revisions { display: grid; border-top: 1px solid var(--color-ink); }
 .revision {
   display: grid;
-  grid-template-columns: minmax(7rem, 10rem) 1fr;
+  grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr);
   gap: 1rem 2rem;
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--color-rule);
 }
 .revision .when { color: var(--color-ink-2); font-size: 0.875rem; }
-.revision h3 { font-size: 1.125rem; letter-spacing: -0.015em; }
-.revision ul { margin: 0.75rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; color: var(--color-ink-2); }
-.revision li::marker { color: var(--color-rule); }
+.revision h3 { font-size: 1.125rem; letter-spacing: -0.015em; line-height: 1.35; overflow-wrap: anywhere; }
+.revision-role { display: grid; gap: 0.125rem; margin-top: 0.25rem; color: var(--color-ink-2); font-size: 1rem; font-weight: 400; letter-spacing: 0; }
+.revision ul { margin: 0.75rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; color: var(--color-ink-2); list-style: disc outside; }
+.revision li::marker { color: var(--color-ink-2); }
 @media (max-width: 40rem) { .revision, .spec > div { grid-template-columns: 1fr; gap: 0.25rem; } }
 
 .contrib { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 3px; }
@@ -351,8 +353,8 @@ p { margin: 0; text-wrap: pretty; }
 .contrib i[data-l="3"] { background: color-mix(in srgb, var(--color-ink) 78%, transparent); }
 .contrib i[data-l="4"] { background: var(--color-ink); }
 
-.contact-close { display: grid; gap: 1.5rem; padding-top: 1rem; }
-.contact-close .mail { font-size: clamp(1.5rem, 1rem + 2.4vw, 3rem); letter-spacing: -0.03em; font-weight: 600; word-break: break-word; }
+.contact-close { display: grid; gap: 1.5rem; padding-top: 1rem; min-width: 0; container-type: inline-size; }
+.contact-close .mail { justify-self: start; max-width: 100%; font-size: clamp(0.875rem, 4.7cqi, 2.5rem); line-height: 1.35; letter-spacing: -0.03em; font-weight: 600; overflow-wrap: anywhere; }
 
 .site-footer { padding-block: 2rem 3rem; color: var(--color-ink-2); font-size: 0.875rem; box-shadow: 0 -1px 0 var(--color-rule); }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }

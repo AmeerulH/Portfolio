@@ -1,5 +1,5 @@
 import { Document, Page, Text, View, StyleSheet, renderToBuffer } from "@react-pdf/renderer";
-import { getExperience, getSettings } from "@/sanity/lib/queries";
+import { getExperience, getProjects, getSettings } from "@/sanity/lib/queries";
 import { period } from "@/lib/format";
 
 const css = StyleSheet.create({
@@ -16,7 +16,8 @@ const css = StyleSheet.create({
 });
 
 export async function GET() {
-  const [s, jobs] = await Promise.all([getSettings(), getExperience()]);
+  const [s, jobs, projects] = await Promise.all([getSettings(), getExperience(), getProjects()]);
+  const picked = projects.filter((project) => project.showOnResume);
   const roles = jobs.filter((j) => j.showOnResume !== false);
 
   const doc = (
@@ -30,7 +31,7 @@ export async function GET() {
         {s?.summary && (<><Text style={css.h}>Profile</Text><Text>{s.summary}</Text></>)}
         <Text style={css.h}>Experience</Text>
         {roles.map((j) => (
-          <View key={j._id} style={css.row} wrap={false}>
+          <View key={j._id} style={css.row}>
             <Text style={css.when}>{period(j.startDate, j.endDate)}</Text>
             <View style={css.body}>
               <Text style={css.title}>{j.company}, {j.role}</Text>
@@ -40,6 +41,21 @@ export async function GET() {
             </View>
           </View>
         ))}
+        {!!picked.length && (
+          <>
+            <Text style={css.h}>Selected projects</Text>
+            {picked.map((project) => (
+              <View key={project._id} style={css.row}>
+                <Text style={css.when}>{project.year}</Text>
+                <View style={css.body}>
+                  <Text style={css.title}>{project.title}</Text>
+                  <Text>{project.summary}</Text>
+                  {!!project.stack?.length && <Text style={css.li}>{project.stack.map((tech) => tech.name).join(" / ")}</Text>}
+                </View>
+              </View>
+            ))}
+          </>
+        )}
         {!!s?.education?.length && (
           <>
             <Text style={css.h}>Education</Text>

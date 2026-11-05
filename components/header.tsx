@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getProjects, getSettings } from "@/sanity/lib/queries";
 import { availabilityLabel, modelNumber } from "@/lib/format";
 import { Palette, type PaletteItem } from "./palette";
@@ -23,7 +24,8 @@ export async function Header() {
     <header className="site-header">
       <div className="wrap">
         <Link href="/" className="wordmark" aria-label={`${settings?.name ?? "Home"}, home`}>
-          {settings?.name ?? "Ameerul Hady"}
+          <Image src="/icon.svg" alt="" width={28} height={28} className="wordmark-icon" />
+          <span>{settings?.name ?? "Ameerul Hady"}</span>
         </Link>
         <div style={{ display: "flex", alignItems: "center", gap: "clamp(0.75rem, 2vw, 1.75rem)" }}>
           <Nav />

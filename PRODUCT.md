@@ -26,7 +26,7 @@ Product engineer: ships whole products end to end, from idea to production, with
 
 ## Operating Context
 
-Content is edited by the owner in Sanity Studio and delivered to the site through Sanity's Live Content API. GitHub stats are fetched server-side and cached. The resume page and PDF are generated from the same Sanity content. Background content comes from the previous site (lib/info, lib/jobs, lib/projects) and a LinkedIn export to be supplied.
+Content is edited by the owner in Sanity Studio and delivered to the site through Sanity's Live Content API. GitHub stats are fetched server-side and cached. The resume page and PDF are generated from the same Sanity content. Background content comes from the previous site (lib/info, lib/jobs, lib/projects) and the master resume supplied on 5 November 2026.
 
 ## Capabilities and Constraints
 
@@ -62,3 +62,9 @@ Content is edited by the owner in Sanity Studio and delivered to the site throug
 ## Accessibility & Inclusion
 
 Respect prefers-reduced-motion (fall back to opacity), full keyboard operation including the command palette, WCAG AA contrast.
+
+## Content refresh — 5 November 2026
+
+The master resume and supplied Deriv contribution report are the current professional evidence. Highlight web and Flutter delivery, application foundations, API/WebSocket reliability, transaction safeguards and release ownership. Preserve the distinction between measured build artifacts and download sizes; do not imply proven production speed gains.
+
+Bouldy now targets React Native/Expo with a web/PWA target and separate FastAPI service. The existing carousel shows the earlier Next.js client and must be labelled as historical. Native store release and installed-PWA acceptance remain separate from source/export completion.
